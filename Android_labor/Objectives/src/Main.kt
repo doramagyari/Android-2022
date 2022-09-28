@@ -1,4 +1,4 @@
-fun main(){
+fun exercise1(){
     val dict: IDictionary = DictionaryProvider.createDictionary(DictionaryType.ARRAY_LIST_)
     println("Number of words: ${dict.size()}")
     var word: String?
@@ -10,4 +10,8 @@ fun main(){
         }
         println("Result: ${word?.let { dict.find(it) }}")
     }
+}
+
+fun exercise2() {
+
 }
