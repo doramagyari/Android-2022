@@ -1,4 +1,11 @@
-fun exercise1(){
+fun main(){
+    exercise1()
+//    println("Magyari Dora".monogram())
+}
+
+//fun String.monogram() = this.split(" ").joinToString(""){ it.first().toUpperCase() }
+
+fun exercise1() {
     val dict: IDictionary = DictionaryProvider.createDictionary(DictionaryType.ARRAY_LIST_)
     println("Number of words: ${dict.size()}")
     var word: String?
@@ -12,6 +19,4 @@ fun exercise1(){
     }
 }
 
-fun exercise2() {
 
-}
