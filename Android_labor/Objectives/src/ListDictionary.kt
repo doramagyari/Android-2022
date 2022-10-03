@@ -17,7 +17,7 @@ object ListDictionary : IDictionary {
     }
 
     override fun find(word: String): Boolean {
-        if(words.contains(word)){
+        if (words.contains(word)) {
             return true
         }
         return false
