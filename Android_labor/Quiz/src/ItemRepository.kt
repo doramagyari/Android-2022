@@ -1,25 +1,30 @@
 import java.io.File
+import java.util.*
 
 class ItemRepository {
 
- val items =  mutableListOf<Item>()
+    val items = mutableListOf<Item>()
 
     init {
-        var isNewQuestion = true
-        var numberOfLinesPerQuestion = 0
-
-        var lines = File("question.txt").readLines()
-        var i = 0
-        while ( i < lines.size){
-            val numberOfAnswers = lines[i++].toInt()
-            val question = lines[i++]
-            val correct = lines[i++].toInt()
-            val answers = mutableListOf<String>()
-            for(answer in (i+3)..(i+numberOfAnswers-1)){
-                answers.add(lines[answer])
+        val scanner = Scanner(File("input.txt"))
+        while (scanner.hasNextLine()){
+            var line = scanner.nextLine()
+            if (line.isEmpty()) {
+                continue
             }
-            i+= numberOfAnswers + 1
-            val item = Item(question, correct, answers)
+            if (line.toInt() > 0){
+                val nrOfAnswers = line.toInt()
+                val answersList = mutableListOf<String>()
+                var counter = 0
+                while (counter < nrOfAnswers){
+                    line = scanner.nextLine()
+                    answersList.add(line)
+                    counter++
+                }
+                val question = scanner.nextLine()
+                val answer = scanner.nextLine().toInt()
+                save(Item(question,answersList, answer))
+            }
         }
 
     }
@@ -28,6 +33,8 @@ class ItemRepository {
         val index = (1.. items.size- 1).random()
 
         return items[index]
+
+        //items.random()
     }
 
     fun save(item: Item){

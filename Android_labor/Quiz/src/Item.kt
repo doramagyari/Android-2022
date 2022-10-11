@@ -1,8 +1,4 @@
-data class Item(
-    private val answers: String,
-    private val correct: Int,
-    private val question: MutableList<String>
-) {
+data class Item(var question: String, var answers: MutableList<String>, var correct: Int) {
 }
 
 
