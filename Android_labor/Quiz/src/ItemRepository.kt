@@ -6,7 +6,7 @@ class ItemRepository {
     val items = mutableListOf<Item>()
 
     init {
-        val scanner = Scanner(File("input.txt"))
+        val scanner = Scanner(File("quiz.txt"))
         while (scanner.hasNextLine()){
             var line = scanner.nextLine()
             if (line.isEmpty()) {
@@ -30,11 +30,9 @@ class ItemRepository {
     }
 
     fun randomItem() : Item{
-        val index = (1.. items.size- 1).random()
 
-        return items[index]
 
-        //items.random()
+        return items.random()
     }
 
     fun save(item: Item){

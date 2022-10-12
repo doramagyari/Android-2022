@@ -1,7 +1,7 @@
 fun main() {
     val itemController = ItemController(ItemService(ItemRepository()))
-    println("How many questions do you want to take? (Maximum is 10! )")
-    val nrOfQ = readLine()!!.trim().toInt()
-    if (nrOfQ <= 0 || nrOfQ > 10 ) println("Incorrect quantity! Good Bye!") else itemController.quiz(nrOfQ)
+    println("Number of questions you want to take?")
+    val numOfQ = readLine()!!.trim().toInt()
+    if (numOfQ <= 0 || numOfQ > 10 ) println("Incorrect") else itemController.quiz(numOfQ)
 
 }
