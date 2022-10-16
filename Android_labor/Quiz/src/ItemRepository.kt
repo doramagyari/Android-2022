@@ -30,8 +30,6 @@ class ItemRepository {
     }
 
     fun randomItem() : Item{
-
-
         return items.random()
     }
 
