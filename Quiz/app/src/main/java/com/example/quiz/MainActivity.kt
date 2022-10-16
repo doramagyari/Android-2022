@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
         initViewItem()
         registerListener()
 
+        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+
     }
 
     private fun initViewItem() {
@@ -54,7 +56,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun registerListener() {
         startButton.setOnClickListener{
-            //handle click events
+            if(editText.text.isEmpty()){
+                Toast.makeText(applicationContext, "You have to give a name!", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(applicationContext, "Your name: ${editText.text}", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
