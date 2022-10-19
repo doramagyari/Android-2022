@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui_fragments.MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="127dp"
-        android:text="@string/quiz"
+        android:text="LET'S PLAY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,8 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="48dp"
         android:layout_marginBottom="265dp"
-        android:backgroundTint="#FFBB86FC"
-        android:text="CHOOSE CONTACT"
+        android:backgroundTint="#00BCD4"
+        android:text="SELECT CONTACT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="GET STARTED"
+        android:backgroundTint="#0D8898"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_name" />

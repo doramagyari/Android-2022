@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    tools:context=".ui_fragments.MenuActivity">
 
     <TextView
         android:id="@+id/the_text_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Name of the player is:"
-        android:layout_margin="15sp"
-        android:gravity="center"
-        android:textColor="#FF6200EE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.398"
+        android:textColor="#00BCD4"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
