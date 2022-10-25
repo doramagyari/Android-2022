@@ -1,4 +1,4 @@
-package com.example.quizv2.ui_fragments
+/*package com.example.quizv2.ui_fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -33,3 +33,4 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 }
+        */

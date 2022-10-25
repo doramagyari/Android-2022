@@ -9,11 +9,30 @@ import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.provider.ContactsContract
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizv2.R
+import com.example.quizv2.shared.MyViewModel
 import com.google.android.material.snackbar.Snackbar
 
+const val EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE"
 
+class MainActivity : AppCompatActivity() {
+
+    val viewModel : MyViewModel by viewModels()
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+    }
+
+}
+
+/*
 class MainActivity : AppCompatActivity() {
 
     val REQUEST_SELECT_CONTACT = 1
@@ -48,16 +67,18 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             if (editName.text.isEmpty()) {
-                val intent = Intent(this, MenuActivity::class.java).apply {
-                    putExtra(EXTRA_MESSAGE, "You didn't give any name!")
-                }
-                startActivity(intent)
+                Toast.makeText(applicationContext, "You did not give a name!", Toast.LENGTH_SHORT).show();
+//                val intent = Intent(this, MenuActivity::class.java).apply {
+//                    putExtra(EXTRA_MESSAGE, "You didn't give any name!")
+//                }
+//                startActivity(intent)
             }
             else{
-                val intent = Intent(this, MenuActivity::class.java).apply {
-                    putExtra(EXTRA_MESSAGE, "Name of the player is :  ${editName.text}")
-                }
-                startActivity(intent)
+                Toast.makeText(applicationContext, "Your name: ${editName.text}", Toast.LENGTH_SHORT).show();
+//                val intent = Intent(this, MenuActivity::class.java).apply {
+//                    putExtra(EXTRA_MESSAGE, "Name of the player is :  ${editName.text}")
+//                }
+//                startActivity(intent)
             }
         }
 
@@ -97,3 +118,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+*/
