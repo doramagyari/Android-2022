@@ -18,7 +18,7 @@ import com.example.quizv2.R
 import com.example.quizv2.shared.MyViewModel
 
 class CurrentQuiz : Fragment() {
-    val sharedView : MyViewModel by activityViewModels()
+    private val sharedView : MyViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -92,3 +92,5 @@ class CurrentQuiz : Fragment() {
     }
 
 }
+
+

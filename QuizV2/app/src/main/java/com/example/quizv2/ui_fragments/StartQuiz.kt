@@ -23,6 +23,7 @@ class StartQuiz: Fragment()  {
     val REQUEST_SELECT_CONTACT = 1
     lateinit var contactUri: Uri
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,15 +44,7 @@ class StartQuiz: Fragment()  {
             if(editTextTextPersonName.text.isEmpty()) {
                 Toast.makeText(this.context, "You did not give a name!", Toast.LENGTH_SHORT).show();
             }
-            else{
-                sharedView.startQuiz()
-                if(sharedView.typeOfNewxtQuestion() == 1) {
-                    findNavController().navigate(R.id.action_startQuiz_to_currentQuiz)
-                }
-                else{
-                    findNavController().navigate(R.id.action_startQuiz_to_currentQuizCheck)
-                }
-            }
+
         }
 
 
