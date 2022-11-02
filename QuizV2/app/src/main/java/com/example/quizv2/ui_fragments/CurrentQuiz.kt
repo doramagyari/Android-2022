@@ -1,29 +1,32 @@
 package com.example.quizv2.ui_fragments
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import android.widget.RadioButton
+import androidx.activity.OnBackPressedCallback
+import android.content.DialogInterface
 import com.example.quizv2.R
 import com.example.quizv2.shared.MyViewModel
 
-class CurrentQuiz : Fragment() {
-    private val sharedView : MyViewModel by activityViewModels()
+
+class CurrentQuizRadiobutton : Fragment() {
+
+    val sharedView : MyViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_current_quiz, container, false)
 
         //back button
@@ -54,33 +57,39 @@ class CurrentQuiz : Fragment() {
         questionText.setText(question.text)
 
         val radioGroup = view.findViewById<RadioGroup>(R.id.radioGroup)
-        for (i in 0 until radioGroup.childCount) {
+        for (i in 0 until radioGroup.childCount) { //valaszok megjelenitese
             (radioGroup.getChildAt(i) as RadioButton).text = question.answers[i].first
         }
 
+
         val nextButton = view.findViewById<Button>(R.id.nextButton)
+
         nextButton.setOnClickListener {
 
-            if(oneAnswerChecked()){
-                var number : MutableList<Int> = mutableListOf()
+            if (oneAnswerChecked()) { //ha kijelolok egy valaszt --ellenorzes hogy helyes-e
+                var number: MutableList<Int> = mutableListOf()
                 for (i in 0 until radioGroup.childCount) {
-                    if((radioGroup.getChildAt(i) as RadioButton).isChecked)
+                    if ((radioGroup.getChildAt(i) as RadioButton).isChecked)
                         number.add(i)
                 }
-                    if(sharedView.typeOfNewxtQuestion() == 1) {
-                        findNavController().navigate(R.id.action_currentQuiz_self)
+                sharedView.calculateResult(question, number)
+                if (sharedView.endOfQuiz())
+                    findNavController().navigate(R.id.action_currentQuiz_to_resultQuiz) //ha a quiz veget ert kiirja az eredmenyt
+                else {
+                    if (sharedView.typeOfNewxtQuestion() == 1) {
+                        findNavController().navigate(R.id.action_currentQuiz_self) //ha tovabblepek marad maga a quiz a kovetkezo kerdessel
                     }
-                    else{
-                        findNavController().navigate(R.id.action_currentQuiz_to_currentQuizCheck)
-                    }
+
+                }
             }
         }
+
 
         return view
     }
 
 
-    private fun oneAnswerChecked() : Boolean{
+    private fun oneAnswerChecked() : Boolean{ //ha kijeloltem egy helyes valaszt megjeleniti a kovetkezo kerdest a valaszokkal egyutt
         val radioGroup = view?.findViewById<RadioGroup>(R.id.radioGroup)
         if (radioGroup != null) {
             for (i in 0 until radioGroup.childCount) {
@@ -92,5 +101,3 @@ class CurrentQuiz : Fragment() {
     }
 
 }
-
-

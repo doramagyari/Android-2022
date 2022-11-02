@@ -2,33 +2,35 @@ package com.example.quizv2.ui_fragments
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.quizv2.R
 import com.example.quizv2.shared.MyViewModel
 
-class StartQuiz: Fragment()  {
+class StartQuiz : Fragment() {
+
     val sharedView : MyViewModel by activityViewModels()
     val REQUEST_SELECT_CONTACT = 1
     lateinit var contactUri: Uri
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_quiz_start, container, false)
+        // Inflate the layout for this fragment
+        val view =  inflater.inflate(R.layout.fragment_start_quiz, container, false)
         val getStartedButton = view.findViewById<Button>(R.id.getStartedButton)
 
         val contactsButton = view.findViewById<Button>(R.id.contactsButton)
@@ -44,7 +46,15 @@ class StartQuiz: Fragment()  {
             if(editTextTextPersonName.text.isEmpty()) {
                 Toast.makeText(this.context, "You did not give a name!", Toast.LENGTH_SHORT).show();
             }
-
+            else{
+                sharedView.startQuiz()
+                if(sharedView.typeOfNewxtQuestion() == 1) {
+                    findNavController().navigate(R.id.action_startQuiz_to_currentQuiz)
+                }
+                else{
+                    findNavController().navigate(R.id.action_startQuiz_to_currentQuizCheckbox)
+                }
+            }
         }
 
 

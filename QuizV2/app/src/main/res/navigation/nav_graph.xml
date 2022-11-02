@@ -12,37 +12,49 @@
             android:id="@+id/action_startQuiz_to_currentQuiz"
             app:destination="@id/currentQuiz" />
         <action
-            android:id="@+id/action_startQuiz_to_currentQuizCheck"
-            app:destination="@id/currentQuizCheck" />
+            android:id="@+id/action_startQuiz_to_currentQuizCheckbox"
+            app:destination="@id/currentQuizCheckbox" />
     </fragment>
-
+    <fragment
+        android:id="@+id/resultQuiz"
+        android:name="com.example.quizv2.ui_fragments.ResultQuiz"
+        android:label="ResultQuiz" >
+        <action
+            android:id="@+id/action_resultQuiz_to_startQuiz"
+            app:destination="@id/startQuiz" />
+    </fragment>
     <fragment
         android:id="@+id/currentQuiz"
-        android:name="com.example.quizv2.ui_fragments.CurrentQuiz"
+        android:name="com.example.quizv2.ui_fragments.CurrentQuizRadiobutton"
         android:label="CurrentQuiz" >
+        <action
+            android:id="@+id/action_currentQuiz_to_resultQuiz"
+            app:destination="@id/resultQuiz" />
         <action
             android:id="@+id/action_currentQuiz_self"
             app:destination="@id/currentQuiz" />
         <action
-            android:id="@+id/action_currentQuiz_to_currentQuizCheck"
-            app:destination="@id/currentQuizCheck" />
+            android:id="@+id/action_currentQuiz_to_currentQuizCheckbox"
+            app:destination="@id/currentQuizCheckbox" />
         <action
             android:id="@+id/action_currentQuiz_to_startQuiz"
             app:destination="@id/startQuiz" />
     </fragment>
     <fragment
-        android:id="@+id/currentQuizCheck"
-        android:name="com.example.quizv2.ui_fragments.CurrentQuizCheck"
-        android:label="CurrentQuizCheck" >
+        android:id="@+id/currentQuizCheckbox"
+        android:name="com.example.quizv2.ui_fragments.CurrentQuizCheckbox"
+        android:label="CurrentQuizCheckbox" >
         <action
-            android:id="@+id/action_currentQuizCheck_self"
-            app:destination="@id/currentQuizCheck" />
+            android:id="@+id/action_currentQuizCheckbox_self"
+            app:destination="@id/currentQuizCheckbox" />
         <action
-            android:id="@+id/action_currentQuizCheck_to_currentQuiz"
+            android:id="@+id/action_currentQuizCheckbox_to_resultQuiz"
+            app:destination="@id/resultQuiz" />
+        <action
+            android:id="@+id/action_currentQuizCheckbox_to_currentQuiz"
             app:destination="@id/currentQuiz" />
         <action
-            android:id="@+id/action_currentQuizCheck_to_startQuiz"
+            android:id="@+id/action_currentQuizCheckbox_to_startQuiz"
             app:destination="@id/startQuiz" />
     </fragment>
-
 </navigation>
