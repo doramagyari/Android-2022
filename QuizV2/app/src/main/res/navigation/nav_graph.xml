@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/startQuiz">
+    app:startDestination="@id/home3">
 
     <fragment
         android:id="@+id/startQuiz"
@@ -55,6 +55,14 @@
             app:destination="@id/currentQuiz" />
         <action
             android:id="@+id/action_currentQuizCheckbox_to_startQuiz"
+            app:destination="@id/startQuiz" />
+    </fragment>
+    <fragment
+        android:id="@+id/home3"
+        android:name="com.example.quizv2.ui_fragments.Home"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_home3_to_startQuiz"
             app:destination="@id/startQuiz" />
     </fragment>
 </navigation>

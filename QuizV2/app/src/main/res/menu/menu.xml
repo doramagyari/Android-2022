@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/navigation_Home"
+            android:title="@string/home"
+            android:icon="@drawable/home_icon"
+            android:checked="true" />
+        <item
+            android:id="@+id/navigation_Quiz"
+            android:icon="@drawable/quiz"
+            android:title="@string/quizz" />
+        <item
+            android:id="@+id/navigation_Profile"
+            android:icon="@drawable/profile_pic"
+            android:title="@string/profile" />
+
+</menu>

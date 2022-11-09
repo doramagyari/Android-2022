@@ -11,35 +11,38 @@ import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.get
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.example.quizv2.R
+import com.example.quizv2.databinding.FragmentCurrentQuizCheckboxBinding
 import com.example.quizv2.shared.MyViewModel
 
 
 class CurrentQuizCheckbox : Fragment() {
 
     val sharedView : MyViewModel by activityViewModels()
+    lateinit var binding : FragmentCurrentQuizCheckboxBinding
+    lateinit var listOfCheckbox : List<CheckBox>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_current_quiz_checkbox, container, false)
+        binding = FragmentCurrentQuizCheckboxBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         //back button
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 val dialogClickListener =
                     DialogInterface.OnClickListener { dialog, which ->
-                        when (which) {
-                            DialogInterface.BUTTON_POSITIVE -> {
-                                findNavController().navigate(R.id.action_currentQuizCheckbox_to_startQuiz)
-                            }
-                            DialogInterface.BUTTON_NEGATIVE -> {
-
-                            }
+                        if (which == DialogInterface.BUTTON_POSITIVE) {
+                            val fragmentTransaction = parentFragmentManager.beginTransaction()
+                            fragmentTransaction.replace(R.id.fragment_container,StartQuiz())
+                            fragmentTransaction.addToBackStack(null)
+                            fragmentTransaction.commit()
                         }
                     }
 
@@ -50,53 +53,50 @@ class CurrentQuizCheckbox : Fragment() {
             }
         })
 
-        var question = sharedView.getQuestion()
+        val question = sharedView.getQuestion()
 
-        val questionText = view.findViewById<TextView>(R.id.questionText)
-        questionText.setText(question.text)
+        binding.questionText.setText(question.text)
 
-        val answer1 = view.findViewById<CheckBox>(R.id.answer1)
-        val answer2 = view.findViewById<CheckBox>(R.id.answer2)
-        val answer3 = view.findViewById<CheckBox>(R.id.answer3)
-        val answer4 = view.findViewById<CheckBox>(R.id.answer4)
-        val listOfCheckbox : List<CheckBox> = listOf(answer1,answer2,answer3,answer4)
+        val answer1 = binding.answer1
+        val answer2 = binding.answer2
+        val answer3 = binding.answer3
+        val answer4 = binding.answer4
+        listOfCheckbox = listOf(answer1,answer2,answer3,answer4)
         listOfCheckbox.forEachIndexed { index, item ->
             item.text = question.answers[index].first
         }
 
 
-        val nextButton = view.findViewById<Button>(R.id.nextButton)
-        nextButton.setOnClickListener {
-
-            if (oneAnswerChecked()) { //--ellenorzes
-                var number: MutableList<Int> = mutableListOf()
+        binding.nextButton.setOnClickListener {
+            if(oneAnswerChecked()){
+                val number : MutableList<Int> = mutableListOf()
                 listOfCheckbox.forEachIndexed { index, item ->
-                    if (item.isChecked)
+                    if(item.isChecked)
                         number.add(index)
                 }
                 sharedView.calculateResult(question, number)
-                if (sharedView.endOfQuiz())
-                    findNavController().navigate(R.id.action_currentQuizCheckbox_to_resultQuiz)
+
+                val fragmentTransaction = parentFragmentManager.beginTransaction()
+                if(sharedView.endOfQuiz()) {
+
+                    fragmentTransaction.replace(R.id.fragment_container,StartQuiz())
+                }
                 else {
-                    if (sharedView.typeOfNewxtQuestion() == 1) {
-                        findNavController().navigate(R.id.action_currentQuizCheckbox_to_currentQuiz)
-                    } else {
-                        findNavController().navigate(R.id.action_currentQuizCheckbox_self)
+                    if(sharedView.typeOfNewxtQuestion() == 1) {
+                        fragmentTransaction.replace(R.id.fragment_container,CurrentQuizRadiobutton())
+                    }
+                    else{
+                        fragmentTransaction.replace(R.id.fragment_container,CurrentQuizCheckbox())
                     }
                 }
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
             }
         }
-
-        return view
     }
 
 
-    private fun oneAnswerChecked() : Boolean{ //ha egy valaszt kijelolok
-        val answer1 = view?.findViewById<CheckBox>(R.id.answer1)
-        val answer2 = view?.findViewById<CheckBox>(R.id.answer2)
-        val answer3 = view?.findViewById<CheckBox>(R.id.answer3)
-        val answer4 = view?.findViewById<CheckBox>(R.id.answer4)
-        val listOfCheckbox : List<CheckBox> = listOf(answer1,answer2,answer3,answer4) as List<CheckBox>
+    private fun oneAnswerChecked() : Boolean{
         listOfCheckbox.forEach { item ->
             if(item.isChecked)
                 return true

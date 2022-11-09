@@ -10,38 +10,43 @@ import android.widget.Button
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import android.widget.RadioButton
 import androidx.activity.OnBackPressedCallback
 import android.content.DialogInterface
 import com.example.quizv2.R
+import com.example.quizv2.databinding.FragmentCurrentQuizBinding
 import com.example.quizv2.shared.MyViewModel
 
 
 class CurrentQuizRadiobutton : Fragment() {
 
     val sharedView : MyViewModel by activityViewModels()
+    lateinit var binding: FragmentCurrentQuizBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_current_quiz, container, false)
+        binding = FragmentCurrentQuizBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
 
         //back button
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 val dialogClickListener =
-                    DialogInterface.OnClickListener { dialog, which ->
-                        when (which) {
-                            DialogInterface.BUTTON_POSITIVE -> {
-                                findNavController().navigate(R.id.action_currentQuiz_to_startQuiz)
-                            }
-                            DialogInterface.BUTTON_NEGATIVE -> {
-
-                            }
+                    DialogInterface.OnClickListener { _, which ->
+                        if (which == DialogInterface.BUTTON_POSITIVE) {
+                            val fragmentTransaction = parentFragmentManager.beginTransaction()
+                            fragmentTransaction.replace(R.id.fragment_container,StartQuiz())
+                            fragmentTransaction.addToBackStack(null)
+                            fragmentTransaction.commit()
                         }
+
                     }
 
                 val builder = AlertDialog.Builder(context)
@@ -51,53 +56,104 @@ class CurrentQuizRadiobutton : Fragment() {
             }
         })
 
-        var question = sharedView.getQuestion()
+        val question = sharedView.getQuestion()
 
-        val questionText = view.findViewById<TextView>(R.id.questionText)
-        questionText.setText(question.text)
+        binding.questionText.setText(question.text)
 
-        val radioGroup = view.findViewById<RadioGroup>(R.id.radioGroup)
-        for (i in 0 until radioGroup.childCount) { //valaszok megjelenitese
+        val radioGroup = binding.radioGroup
+        for (i in 0 until radioGroup.childCount) {
             (radioGroup.getChildAt(i) as RadioButton).text = question.answers[i].first
         }
 
 
-        val nextButton = view.findViewById<Button>(R.id.nextButton)
+        binding.nextButton.setOnClickListener {
 
-        nextButton.setOnClickListener {
-
-            if (oneAnswerChecked()) { //ha kijelolok egy valaszt --ellenorzes hogy helyes-e
-                var number: MutableList<Int> = mutableListOf()
+            if(oneAnswerChecked()){
+                val number : MutableList<Int> = mutableListOf()
                 for (i in 0 until radioGroup.childCount) {
-                    if ((radioGroup.getChildAt(i) as RadioButton).isChecked)
+                    if((radioGroup.getChildAt(i) as RadioButton).isChecked)
                         number.add(i)
                 }
                 sharedView.calculateResult(question, number)
-                if (sharedView.endOfQuiz())
-                    findNavController().navigate(R.id.action_currentQuiz_to_resultQuiz) //ha a quiz veget ert kiirja az eredmenyt
-                else {
-                    if (sharedView.typeOfNewxtQuestion() == 1) {
-                        findNavController().navigate(R.id.action_currentQuiz_self) //ha tovabblepek marad maga a quiz a kovetkezo kerdessel
-                    }
 
+                val fragmentTransaction = parentFragmentManager.beginTransaction()
+                if(sharedView.endOfQuiz()) {
+                    fragmentTransaction.replace(R.id.fragment_container, ResultQuiz())
                 }
+                else {
+                    if(sharedView.typeOfNewxtQuestion() == 1) {
+                        fragmentTransaction.replace(R.id.fragment_container,CurrentQuizRadiobutton())
+                    }
+                    else{
+                        fragmentTransaction.replace(R.id.fragment_container,CurrentQuizCheckbox())
+                    }
+                }
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
             }
         }
 
-
-        return view
     }
 
 
-    private fun oneAnswerChecked() : Boolean{ //ha kijeloltem egy helyes valaszt megjeleniti a kovetkezo kerdest a valaszokkal egyutt
-        val radioGroup = view?.findViewById<RadioGroup>(R.id.radioGroup)
-        if (radioGroup != null) {
-            for (i in 0 until radioGroup.childCount) {
-                if((radioGroup.getChildAt(i) as RadioButton).isChecked)
-                    return true
-            }
+    private fun oneAnswerChecked() : Boolean{
+        val radioGroup = binding.radioGroup
+        for (i in 0 until radioGroup.childCount) {
+            if((radioGroup.getChildAt(i) as RadioButton).isChecked)
+                return true
         }
         return false
     }
 
 }
+
+
+//        var question = sharedView.getQuestion()
+//
+//        val questionText = view.findViewById<TextView>(R.id.questionText)
+//        questionText.setText(question.text)
+//
+//        val radioGroup = view.findViewById<RadioGroup>(R.id.radioGroup)
+//        for (i in 0 until radioGroup.childCount) { //valaszok megjelenitese
+//            (radioGroup.getChildAt(i) as RadioButton).text = question.answers[i].first
+//        }
+//
+//
+//        val nextButton = view.findViewById<Button>(R.id.nextButton)
+//
+//        nextButton.setOnClickListener {
+//
+//            if (oneAnswerChecked()) { //ha kijelolok egy valaszt --ellenorzes hogy helyes-e
+//                var number: MutableList<Int> = mutableListOf()
+//                for (i in 0 until radioGroup.childCount) {
+//                    if ((radioGroup.getChildAt(i) as RadioButton).isChecked)
+//                        number.add(i)
+//                }
+//                sharedView.calculateResult(question, number)
+//                if (sharedView.endOfQuiz())
+//                    findNavController().navigate(R.id.action_currentQuiz_to_resultQuiz) //ha a quiz veget ert kiirja az eredmenyt
+//                else {
+//                    if (sharedView.typeOfNewxtQuestion() == 1) {
+//                        findNavController().navigate(R.id.action_currentQuiz_self) //ha tovabblepek marad maga a quiz a kovetkezo kerdessel
+//                    }
+//
+//                }
+//            }
+//        }
+//
+//
+//        return view
+//    }
+//
+//
+//    private fun oneAnswerChecked() : Boolean{ //ha kijeloltem egy helyes valaszt megjeleniti a kovetkezo kerdest a valaszokkal egyutt
+//        val radioGroup = view?.findViewById<RadioGroup>(R.id.radioGroup)
+//        if (radioGroup != null) {
+//            for (i in 0 until radioGroup.childCount) {
+//                if((radioGroup.getChildAt(i) as RadioButton).isChecked)
+//                    return true
+//            }
+//        }
+//        return false
+//    }
+

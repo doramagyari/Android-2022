@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    >
 
     <TextView
         android:id="@+id/homeTextView1"
@@ -12,75 +13,60 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="183dp"
         android:layout_marginBottom="529dp"
-        android:text="Enjoy the quiz"
+        android:text="HOME PAGE"
         android:textSize="30dp"
+        android:textColor="@color/white"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/homeTextView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="171dp"
-        android:layout_marginBottom="458dp"
-        android:text="you can:"
-        android:textStyle="italic"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeTextView1"
-        />
-
     <Button
         android:id="@+id/homeButton1"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="280dp"
-        android:hint="PLAY"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="360dp"
+        android:backgroundTint="#DD7C01"
+        android:hint="PLAY THE GAME"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeTextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/homeTextView1" />
 
     <Button
         android:id="@+id/homeButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
+        android:layout_width="332dp"
+        android:layout_height="48dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="125dp"
         android:layout_marginBottom="203dp"
+        android:backgroundTint="#1E88E5"
         android:hint="VIEW QUESTIONS AND ANSWERS"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeButton1" />
+        app:layout_constraintTop_toBottomOf="@+id/homeButton1"
+        app:layout_constraintVertical_bias="0.121" />
 
     <Button
         android:id="@+id/homeButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
+        android:layout_width="335dp"
+        android:layout_height="49dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="101dp"
         android:layout_marginBottom="127dp"
+        android:backgroundTint="#DD7C01"
         android:hint="ADD NEW QUESTIONS"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/homeButton2"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

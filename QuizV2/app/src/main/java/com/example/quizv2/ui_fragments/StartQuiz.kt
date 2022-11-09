@@ -2,7 +2,6 @@ package com.example.quizv2.ui_fragments
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,12 +10,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.example.quizv2.R
+import com.example.quizv2.databinding.FragmentStartQuizBinding
 import com.example.quizv2.shared.MyViewModel
 
 class StartQuiz : Fragment() {
@@ -24,41 +22,45 @@ class StartQuiz : Fragment() {
     val sharedView : MyViewModel by activityViewModels()
     val REQUEST_SELECT_CONTACT = 1
     lateinit var contactUri: Uri
+    lateinit var binding: FragmentStartQuizBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_start_quiz, container, false)
-        val getStartedButton = view.findViewById<Button>(R.id.getStartedButton)
+        binding = FragmentStartQuizBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val contactsButton = view.findViewById<Button>(R.id.contactsButton)
-
-        contactsButton.setOnClickListener {
+        binding.contactsButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = ContactsContract.Contacts.CONTENT_TYPE
             startActivityForResult(intent, REQUEST_SELECT_CONTACT)
         }
 
-        getStartedButton.setOnClickListener {
-            val editTextTextPersonName = view.findViewById<EditText>(R.id.editTextTextPersonName)
-            if(editTextTextPersonName.text.isEmpty()) {
-                Toast.makeText(this.context, "You did not give a name!", Toast.LENGTH_SHORT).show();
+        binding.getStartedButton.setOnClickListener {
+            if(binding.editTextTextPersonName.text.isEmpty()) {
+                Toast.makeText(this.context, "You did not give a name!", Toast.LENGTH_SHORT).show()
             }
             else{
+                sharedView.playerName = binding.editTextTextPersonName.text.toString()
+
                 sharedView.startQuiz()
+                val fragmentTransaction = parentFragmentManager.beginTransaction()
                 if(sharedView.typeOfNewxtQuestion() == 1) {
-                    findNavController().navigate(R.id.action_startQuiz_to_currentQuiz)
+                    fragmentTransaction.replace(R.id.fragment_container,CurrentQuizRadiobutton())
                 }
                 else{
-                    findNavController().navigate(R.id.action_startQuiz_to_currentQuizCheckbox)
+                    fragmentTransaction.replace(R.id.fragment_container,CurrentQuizCheckbox())
                 }
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
             }
         }
 
-
-        return view
     }
 
     @SuppressLint("MissingSuperCall")
@@ -80,6 +82,8 @@ class StartQuiz : Fragment() {
             editTextTextPersonName?.setText(contactName)
 
         }
+
+        cursor.close()
     }
 
 }

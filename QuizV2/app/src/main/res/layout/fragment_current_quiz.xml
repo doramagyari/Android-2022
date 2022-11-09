@@ -4,21 +4,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="30dp"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214"
-        android:textColor="@color/black"/>
+        app:layout_constraintVertical_bias="0.214" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -32,24 +37,28 @@
 
         <RadioButton
             android:id="@+id/answer1"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
 
         <RadioButton
             android:id="@+id/answer2"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
 
         <RadioButton
             android:id="@+id/answer3"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
 
         <RadioButton
             android:id="@+id/answer4"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
@@ -57,12 +66,13 @@
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="#1E88E5"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
