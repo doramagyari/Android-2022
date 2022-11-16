@@ -43,8 +43,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.navigation_Home -> Navigation.findNavController(this, R.id.navigationView).navigate(R.id.home3)
                 R.id.navigation_Quiz -> Navigation.findNavController(this, R.id.navigationView).navigate(R.id.startQuiz)
-//                R.id.nav_list -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.quizListFrag)
-//                R.id.nav_add -> Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.quizAddFrag)
+
             }
             true
         }
