@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
     app:startDestination="@id/home3">
 
@@ -64,5 +65,20 @@
         <action
             android:id="@+id/action_home3_to_startQuiz"
             app:destination="@id/startQuiz" />
+        <action
+            android:id="@+id/action_home3_to_questionList"
+            app:destination="@id/questionList" />
+        <action
+            android:id="@+id/action_home3_to_profile"
+            app:destination="@id/profile" />
     </fragment>
+    <fragment
+        android:id="@+id/questionList"
+        android:name="com.example.quizv2.ui_fragments.QuestionList"
+        android:label="QuestionList" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.quizv2.ui_fragments.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

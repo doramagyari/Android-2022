@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.ClipData
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -21,60 +22,36 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var toggle: ActionBarDrawerToggle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         //navigation drawer
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
-
-        lateinit var toggle : ActionBarDrawerToggle
-
-        val navigationView = findViewById<NavigationView>(R.id.navigationView)
+        var navView: NavigationView = findViewById(R.id.navigationView)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        navigationView.setNavigationItemSelectedListener {
+        navView.setNavigationItemSelectedListener {
             drawerLayout.closeDrawers()
             it.isChecked = true
-            when(it.itemId){
-                R.id.navigation_Home -> Navigation.findNavController(this, R.id.navigationView).navigate(R.id.home3)
-                R.id.navigation_Quiz -> Navigation.findNavController(this, R.id.navigationView).navigate(R.id.startQuiz)
-
+            when (it.itemId) {
+                R.id.navigation_Home -> Navigation.findNavController(this, R.id.navigationView)
+                    .navigate(R.id.home3)
+                R.id.navigation_Quiz -> Navigation.findNavController(this, R.id.navigationView)
+                    .navigate(R.id.startQuiz)
+                R.id.navigation_Quiz -> Navigation.findNavController(this, R.id.navigationView)
+                    .navigate(R.id.questionList)
+                R.id.navigation_Quiz -> Navigation.findNavController(this, R.id.navigationView)
+                    .navigate(R.id.profile)
             }
             true
         }
-        //navigation
-        navigationView.setNavigationItemSelectedListener{ menuItem ->
-            menuItem.isChecked = true
-            drawerLayout.close()
-            when (menuItem.itemId) {
-                R.id.navigation_Home -> {
-                    replaceFragment(Home(),R.id.fragment_container)
-                    return@setNavigationItemSelectedListener true
-                }
-
-                R.id.navigation_Quiz -> {
-                    replaceFragment(StartQuiz(),R.id.fragment_container)
-                    return@setNavigationItemSelectedListener true
-                }
-
-                R.id.navigation_Profile -> {
-                    replaceFragment(Profile(),R.id.fragment_container)
-                    return@setNavigationItemSelectedListener true
-                }
-
-
-                else -> {
-                    replaceFragment(Home(),R.id.fragment_container)
-                    return@setNavigationItemSelectedListener true
-                }
-            }
-        }
-
     }
 
     fun replaceFragment(fragment: Fragment, containerId: Int, addToBackStack:Boolean = false){
@@ -90,7 +67,17 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(toggle.onOptionsItemSelected(item)) return true
+        return super.onOptionsItemSelected(item)
+
+    }
+    
 }
+
+
+
 
 /*
 class MainActivity : AppCompatActivity() {
