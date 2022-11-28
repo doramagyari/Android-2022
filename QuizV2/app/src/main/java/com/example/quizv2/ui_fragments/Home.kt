@@ -14,6 +14,7 @@ class Home : Fragment() {
     lateinit var binding: FragmentHomeBinding
     lateinit var testSkills : Button
     lateinit var readQuestions : Button
+    lateinit var createQuestion : Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +24,7 @@ class Home : Fragment() {
 
         testSkills = binding.homeButton1
         readQuestions  = binding.homeButton2
+        createQuestion = binding.homeButton3
         return binding.root
     }
 
@@ -35,6 +37,10 @@ class Home : Fragment() {
 
         readQuestions.setOnClickListener {
             parentFragmentManager.beginTransaction().replace(R.id.fragment_container, QuestionList()).addToBackStack(null).commit()
+        }
+
+        createQuestion.setOnClickListener {
+            parentFragmentManager.beginTransaction().replace(R.id.fragment_container,CreateQuestion()).addToBackStack(null).commit()
         }
 
     }

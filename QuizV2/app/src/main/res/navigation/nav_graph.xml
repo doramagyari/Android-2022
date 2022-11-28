@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/home3">
+    app:startDestination="@id/Home">
 
     <fragment
         android:id="@+id/startQuiz"
@@ -59,20 +59,6 @@
             app:destination="@id/startQuiz" />
     </fragment>
     <fragment
-        android:id="@+id/home3"
-        android:name="com.example.quizv2.ui_fragments.Home"
-        android:label="Home" >
-        <action
-            android:id="@+id/action_home3_to_startQuiz"
-            app:destination="@id/startQuiz" />
-        <action
-            android:id="@+id/action_home3_to_questionList"
-            app:destination="@id/questionList" />
-        <action
-            android:id="@+id/action_home3_to_profile"
-            app:destination="@id/profile" />
-    </fragment>
-    <fragment
         android:id="@+id/questionList"
         android:name="com.example.quizv2.ui_fragments.QuestionList"
         android:label="QuestionList" />
@@ -81,4 +67,26 @@
         android:name="com.example.quizv2.ui_fragments.Profile"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/Home"
+        android:name="com.example.quizv2.ui_fragments.Home"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_home4_to_profile"
+            app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_home4_to_startQuiz"
+            app:destination="@id/startQuiz" />
+        <action
+            android:id="@+id/action_home4_to_questionList"
+            app:destination="@id/questionList" />
+        <action
+            android:id="@+id/action_Home_to_createQuestion"
+            app:destination="@id/createQuestion" />
+    </fragment>
+    <fragment
+        android:id="@+id/createQuestion"
+        android:name="com.example.quizv2.ui_fragments.CreateQuestion"
+        android:label="fragment_create_question"
+        tools:layout="@layout/fragment_create_question" />
 </navigation>

@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#FFB300"
+                android:backgroundTint="#4A3673"
                 android:text="Details" />
 
             <Button
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#FFB300"
+                android:backgroundTint="#4A3673"
                 android:text="DELETE"/>
         </LinearLayout>
 

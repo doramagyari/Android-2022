@@ -2,71 +2,64 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    >
+    android:background="@drawable/background" >
 
-    <TextView
-        android:id="@+id/homeTextView1"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/homeButton1"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="183dp"
-        android:layout_marginBottom="529dp"
-        android:text="HOME PAGE"
-        android:textSize="30dp"
-        android:textColor="@color/white"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="95dp"
+        android:backgroundTint="#4A3673"
+        android:hint="PLAY THE GAME"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/homeButton2"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="95dp"
+        android:backgroundTint="#4A3673"
+        android:hint="QUESTION LIST"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeButton1" />
+
+    <Button
+        android:id="@+id/homeButton3"
+        android:layout_width="220dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="95dp"
+        android:backgroundTint="#4A3673"
+        android:hint="CREATE QUESTION"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeButton2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="258dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="104dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/homeButton1"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:layout_marginBottom="360dp"
-        android:backgroundTint="#DD7C01"
-        android:hint="PLAY THE GAME"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeTextView1" />
-
-    <Button
-        android:id="@+id/homeButton2"
-        android:layout_width="332dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="203dp"
-        android:backgroundTint="#1E88E5"
-        android:hint="VIEW QUESTIONS AND ANSWERS"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeButton1"
-        app:layout_constraintVertical_bias="0.121" />
-
-    <Button
-        android:id="@+id/homeButton3"
-        android:layout_width="335dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="127dp"
-        android:backgroundTint="#DD7C01"
-        android:hint="ADD NEW QUESTIONS"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeButton2"
-        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

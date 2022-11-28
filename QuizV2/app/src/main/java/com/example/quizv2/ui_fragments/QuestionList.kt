@@ -30,6 +30,9 @@ class QuestionList : Fragment() {
         }
         override fun onDetails(model: Question) {
             val fragmentTransaction = parentFragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fragment_container,QuestionDetail(model))
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
 
         }
     }

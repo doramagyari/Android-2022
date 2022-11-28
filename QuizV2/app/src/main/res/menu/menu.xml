@@ -15,4 +15,15 @@
             android:icon="@drawable/profile_pic"
             android:title="@string/profile" />
 
+        <item
+            android:id="@+id/questionList"
+            android:icon="@drawable/view"
+            android:title="List" />
+
+        <item
+            android:id="@+id/createQuestion"
+            android:icon="@drawable/add"
+            android:title="New" />
+
+
 </menu>

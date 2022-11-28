@@ -27,7 +27,7 @@
 
     <CheckBox
         android:id="@+id/answer1"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -38,7 +38,7 @@
 
     <CheckBox
         android:id="@+id/answer2"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -49,7 +49,7 @@
 
     <CheckBox
         android:id="@+id/answer3"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -60,7 +60,7 @@
 
     <CheckBox
         android:id="@+id/answer4"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -71,7 +71,7 @@
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="320dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         android:text="Next"
@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="#1E88E5"
+        android:backgroundTint="#4A3673"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
