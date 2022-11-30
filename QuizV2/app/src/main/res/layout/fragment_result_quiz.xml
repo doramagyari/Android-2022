@@ -27,23 +27,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.162" />
 
     <ImageView
-        android:id="@+id/like_dislike"
-        android:layout_width="318dp"
-        android:layout_height="209dp"
+        android:id="@+id/play_again"
+        android:layout_width="238dp"
+        android:layout_height="161dp"
         android:layout_marginTop="43dp"
         android:layout_marginBottom="30dp"
-        android:src="@drawable/like_dislike"
+        android:src="@drawable/play_again"
         app:layout_constraintBottom_toTopOf="@+id/tryAgainButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,9 +50,9 @@
 
     <Button
         android:id="@+id/tryAgainButton"
-        android:layout_width="320dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#1E88E5"
+        android:backgroundTint="#4A3673"
         android:text="TRY AGAIN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -39,7 +39,7 @@ class QuestionDetail(val model : Question) : Fragment() {
         for (q in model.answers.withIndex()) { //kiirja a valaszokat
             if (q.value.second) {
                 numberOfCorrectAnswers++
-                answersList[q.index].setTextColor(Color.parseColor("#1E88E5")) //helyes valasz
+                answersList[q.index].setTextColor(Color.parseColor("#4A3673")) //helyes valasz
             }
             answersList[q.index].text = q.value.first
         }
