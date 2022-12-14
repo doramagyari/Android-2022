@@ -1,10 +1,10 @@
 package com.example.a3tracker_projekt.ui.dashboard
 
-import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.example.projekt.databinding.FragmentDashboardBinding

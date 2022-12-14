@@ -1,7 +1,5 @@
 package com.example.a3tracker_projekt.api
 
-import android.provider.SyncStateContract
-import com.example.a3tracker_projekt.api.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -24,7 +22,7 @@ object ApiClient {
         get() {
             if(mRetrofit == null){
                 mRetrofit = Retrofit.Builder()
-                    .baseUrl(SyncStateContract.Constants.BASE_URL)
+                    .baseUrl(Constants.BASE_URL)
                     .client(mOkHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
