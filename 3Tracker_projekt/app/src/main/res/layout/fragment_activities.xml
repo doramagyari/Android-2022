@@ -1,13 +1,156 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a3tracker_projekt.ui.fragments.ActivitiesFragment">
+    tools:context="com.example.a3tracker_projekt.ui.fragments.ActivitiesFragment"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="440dp"
+        android:layout_height="67dp"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="-90dp"
+        android:layout_marginBottom="567dp"
+        android:src="@drawable/mask"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toolbar2" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView9"
+        android:layout_width="105dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="-57dp"
+        android:text="Activities"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar2"
+        app:layout_constraintStart_toEndOf="@+id/imageView14" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="38dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="-416dp"
+        android:layout_marginBottom="-50dp"
+        android:src="@drawable/ic_baseline_search_24"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar2"
+        app:layout_constraintEnd_toStartOf="@+id/toolbar2" />
+
+    <TextureView
+        android:id="@+id/textureView"
+        android:layout_width="438dp"
+        android:layout_height="328dp"
+        android:layout_marginBottom="210dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-370dp"
+        android:layout_marginTop="-320dp"
+        android:text="Announcement"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/textureView"
+        app:layout_constraintTop_toBottomOf="@+id/textureView" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="18dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="-400dp"
+        android:layout_marginBottom="-27dp"
+        android:src="@drawable/vector"
+        app:layout_constraintBottom_toTopOf="@+id/textureView"
+        app:layout_constraintStart_toEndOf="@+id/textureView" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-170dp"
+        android:layout_marginBottom="-63dp"
+        android:text="Johhny Doe"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textureView"
+        app:layout_constraintEnd_toStartOf="@+id/textureView" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="53dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/avatar"
+        app:layout_constraintEnd_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <EditText
+        android:id="@+id/editTextDate4"
+        android:layout_width="64dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="-160dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toStartOf="@+id/textureView"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="117dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/mask"
+        app:layout_constraintEnd_toStartOf="@+id/imageView19"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate4" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="122dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="-223dp"
+        android:layout_marginEnd="-340dp"
+        android:src="@drawable/ellipse"
+        app:layout_constraintEnd_toStartOf="@+id/textureView"
+        app:layout_constraintTop_toBottomOf="@+id/textureView" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="69dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="-90dp"
+        android:layout_marginEnd="-98dp"
+        android:src="@drawable/book"
+        app:layout_constraintEnd_toStartOf="@+id/imageView19"
+        app:layout_constraintTop_toBottomOf="@+id/imageView19" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="191dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="-322dp"
+        android:layout_marginTop="-100dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textureView"
+        app:layout_constraintTop_toBottomOf="@+id/textureView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_demo_login" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.a3tracker_projekt.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_activities"
+        android:name="com.example.a3tracker_projekt.ui.fragments.ActivitiesFragment"
         android:label="Dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_activities" />
 
     <fragment
         android:id="@+id/navigation_notifications"
