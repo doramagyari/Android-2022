@@ -1,4 +1,4 @@
-package com.example.a3tracker_projekt.ui.fragments
+package com.example.a3tracker_projekt.ui.tasks
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.projekt.R
 
-class ProfileFragment : Fragment() {
+class CreateTask : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -20,7 +20,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return inflater.inflate(R.layout.fragment_create_task, container, false)
     }
 
 
