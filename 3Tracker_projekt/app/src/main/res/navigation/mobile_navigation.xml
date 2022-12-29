@@ -2,20 +2,80 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@+id/navigation_login">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_login"
         android:name="com.example.a3tracker_projekt.ui.login.DemoLoginFragment"
-        android:label="fragment_login"
+        android:label="fragment_demo_login"
         tools:layout="@layout/fragment_demo_login" />
+    <fragment
+        android:id="@+id/navigation_activity"
+        android:name="com.example.a3tracker_projekt.ui.activities.ActivityFragment"
+        android:label="fragment_activities"
+        tools:layout="@layout/fragment_activity" >
+
+    <action
+        android:id="@+id/action_activitiesFragment_to_tasksFragment"
+        app:destination="@id/taskFragment" />
+    <action
+        android:id="@+id/action_activitiesFragment_to_groupFragment"
+        app:destination="@id/groupFragment" />
+    <action
+        android:id="@+id/action_activitiesFragment_to_profileFragment"
+        app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="com.example.a3tracker_projekt.ui.groups.GroupFragment"
+        android:label="fragment_group"
+        tools:layout="@layout/fragment_group" >
+        <action
+            android:id="@+id/action_groupFragment_to_tasksFragment"
+            app:destination="@id/taskFragment" />
+
+        <action
+            android:id="@+id/action_groupFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.a3tracker_projekt.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_tasksFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
+
+    <fragment
+
+        android:id="@+id/navigation_tasks"
+        android:name="com.example.a3tracker_projekt.ui.tasks.TaskFragment"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task" >
+
+        <action
+            android:id="@+id/action_taskFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_taskFragment_to_createTaskFragment"
+            app:destination="@id/createTask" />
+    </fragment>
+
+    <fragment
+    android:id="@+id/createTask"
+    android:name="com.example.a3tracker_projekt.ui.tasks.CreateTask"
+    android:label="fragment_create_task"
+    tools:layout="@layout/fragment_create_task" />
 
 
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_tasks"-->
-<!--        android:name="com.example.a3tracker_projekt.ui.tasks.CreateTask"-->
-<!--        android:label="fragment_task"-->
-<!--        tools:layout="@layout/" />-->
+
 
 </navigation>

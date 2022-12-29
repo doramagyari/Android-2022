@@ -1,4 +1,4 @@
-package com.example.a3tracker_projekt.ui.login
+package com.example.a3tracker_projekt.ui.shared
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.repo.UserRepository
+import com.example.a3tracker_projekt.ui.login.LoginResult
 import kotlinx.coroutines.launch
 
 class DemoLoginViewModel : ViewModel() {

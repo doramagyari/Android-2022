@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.a3tracker_projekt.ui.shared.DemoLoginViewModel
 import com.example.projekt.R
 import com.example.projekt.databinding.FragmentDemoLoginBinding
 
@@ -43,9 +43,9 @@ class DemoLoginFragment : Fragment() {
                 }
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_LONG).show()
                 if (it == LoginResult.SUCCESS) {
-                    navController.navigate(R.id.navigation_dashboard)
+                    navController.navigate(R.id.navigation_activity)
                 } else {
-                    navController.navigate(R.id.navigation_notifications)
+                    navController.navigate(R.id.navigation_login)
                 }
             }
         }
