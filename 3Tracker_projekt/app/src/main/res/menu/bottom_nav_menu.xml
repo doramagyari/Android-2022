@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    >
+    tools:showIn = "navigation_view">
 
     <item
         android:id="@+id/activitiesFragment"
         android:icon="@drawable/ic_baseline_local_activity_24"
-        android:title="Activities"  />
+        android:title="Activities"
+        android:actionLayout="@layout/fragment_activity"/>
     <item
         android:id="@+id/groupsFragment"
         android:icon="@drawable/ic_baseline_groups_24"
-        android:title="Groups" />
+        android:title="Groups"
+        android:actionLayout="@layout/fragment_group"/>
     <item
         android:id="@+id/taskFragment"
         android:icon="@drawable/ic_baseline_task_alt_24"
-        android:title="My Tasks"  />
+        android:title="My Tasks"
+        android:actionLayout="@layout/fragment_task"/>
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_account_circle_24"
-        android:title="Profile" />
+        android:title="Profile"
+        android:actionLayout="@layout/fragment_profile"/>
 
 </menu>

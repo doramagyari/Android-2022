@@ -3,28 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation.xml"
-    app:startDestination="@+id/navigation_login">
+    app:startDestination="@+id/splashScreenFragment">
 
     <fragment
         android:id="@+id/navigation_login"
         android:name="com.example.a3tracker_projekt.ui.login.DemoLoginFragment"
         android:label="fragment_demo_login"
-        tools:layout="@layout/fragment_demo_login" />
-    <fragment
-        android:id="@+id/navigation_activity"
-        android:name="com.example.a3tracker_projekt.ui.activities.ActivityFragment"
-        android:label="fragment_activities"
-        tools:layout="@layout/fragment_activity" >
-
-    <action
-        android:id="@+id/action_activitiesFragment_to_tasksFragment"
-        app:destination="@id/taskFragment" />
-    <action
-        android:id="@+id/action_activitiesFragment_to_groupFragment"
-        app:destination="@id/groupFragment" />
-    <action
-        android:id="@+id/action_activitiesFragment_to_profileFragment"
-        app:destination="@id/profileFragment" />
+        tools:layout="@layout/fragment_demo_login" >
+        <action
+            android:id="@+id/action_navigation_login_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/groupFragment"
@@ -74,8 +62,15 @@
     android:name="com.example.a3tracker_projekt.ui.tasks.CreateTask"
     android:label="fragment_create_task"
     tools:layout="@layout/fragment_create_task" />
-
-
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.a3tracker_projekt.ui.splash_screen.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_navigation_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
 
 
 </navigation>

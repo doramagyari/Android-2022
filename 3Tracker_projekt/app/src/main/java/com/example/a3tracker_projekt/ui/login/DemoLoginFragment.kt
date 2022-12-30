@@ -43,7 +43,7 @@ class DemoLoginFragment : Fragment() {
                 }
                 Toast.makeText(activity, it.toString(), Toast.LENGTH_LONG).show()
                 if (it == LoginResult.SUCCESS) {
-                    navController.navigate(R.id.navigation_activity)
+                    navController.navigate(R.id.profileFragment)
                 } else {
                     navController.navigate(R.id.navigation_login)
                 }

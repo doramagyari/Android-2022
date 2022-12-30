@@ -37,9 +37,13 @@ class MainActivity : AppCompatActivity() {
 //        navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.navigation_login) {
+            if (destination.id == R.id.splashScreenFragment ) {
                 navView.visibility = View.GONE
-            } else {
+            }
+            else if(destination.id == R.id.navigation_login ) {
+                navView.visibility = View.GONE
+            }
+            else {
                 navView.visibility = View.VISIBLE
             }
         }
