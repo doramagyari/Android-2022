@@ -3,42 +3,44 @@ package com.example.a3tracker_projekt.ui.shared
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.a3tracker_projekt.api.login.LoginRequest
-import com.example.a3tracker_projekt.repo.UserRepository
+import com.example.a3tracker_projekt.api.user.Application
+import com.example.a3tracker_projekt.api.user.Archive
 import com.example.a3tracker_projekt.ui.login.LoginResult
 import kotlinx.coroutines.launch
 
-class DemoLoginViewModel : ViewModel() {
-
-    companion object{
-        val TAG: String = DemoLoginViewModel::class.java.simpleName
+class DemoLoginViewModelFactory(
+    private val archive: Archive
+) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return DemoLoginViewModel(archive) as T
     }
+}
 
-    val loginResult: MutableLiveData<LoginResult> = MutableLiveData()
-    private val userRepo = UserRepository()
+class DemoLoginViewModel(val archive: Archive) : ViewModel() {
 
-    fun login(email: String, password: String) {
-        loginResult.value = LoginResult.LOADING
-        if(email.isNullOrEmpty() || password.isNullOrEmpty()){
-            loginResult.value = LoginResult.INVALID_CREDENTIALS
-            return
-        }
+    var loginResult: MutableLiveData<LoginResult> = MutableLiveData()
+
+    fun login(request: LoginRequest) {
         viewModelScope.launch {
             try {
-                val loginRequest = LoginRequest(email, password)
-                val response = userRepo.loginUser(loginRequest = loginRequest)
-                if (response?.isSuccessful == true) {
-                    Log.d(TAG, "Login response ${response.body()}")
-                    loginResult.value = LoginResult.SUCCESS
-                } else {
-                    Log.d(TAG, "Login error response ${response?.errorBody()}")
-                    loginResult.value = LoginResult.INVALID_CREDENTIALS
-                }
+                val response = archive.login(request)
+                if (response.isSuccessful) {
 
-            } catch (ex: Exception) {
-                Log.e(TAG, ex.message, ex)
+                    Application.token = response.body()!!.token
+                    Application.deadline = response.body()!!.deadline
+
+                    loginResult.value = LoginResult.SUCCESS
+                    Log.i("xxx", response.body().toString())
+                } else {
+                    loginResult.value = LoginResult.INVALID_CREDENTIALS
+                    Log.i("xxx", "Invalid credentials " + response.errorBody().toString()  )
+                }
+            } catch (e: Exception) {
                 loginResult.value = LoginResult.UNKNOWN_ERROR
+                Log.i("xxx", e.toString())
             }
         }
     }

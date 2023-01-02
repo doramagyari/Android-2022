@@ -1,10 +1,6 @@
 package com.example.a3tracker_projekt.api.login
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.JsonClass
 
-data class LoginRequest(
-    @SerializedName("email")
-    var email: String,
-    @SerializedName("passwordKey")
-    var password: String
-)
+@JsonClass(generateAdapter = true)
+data class LoginRequest(var email: String, var passwordKey: String )
