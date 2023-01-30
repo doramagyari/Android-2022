@@ -1,4 +1,4 @@
-package com.example.a3tracker_projekt.ui.profile
+package com.example.a3tracker_projekt.api.profile
 
 enum class ProfileResult {
     SUCCESS,

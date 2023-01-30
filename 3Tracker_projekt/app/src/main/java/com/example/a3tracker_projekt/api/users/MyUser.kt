@@ -1,10 +1,10 @@
-package com.example.a3tracker_projekt.api.user
+package com.example.a3tracker_projekt.api.users
 
 import com.squareup.moshi.JsonClass
 import java.util.Date
 
 @JsonClass(generateAdapter = true)
-data class User(
+data class MyUser(
     var ID: Int,
     var first_name: String,
     var last_name: String,

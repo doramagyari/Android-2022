@@ -1,4 +1,4 @@
-package com.example.a3tracker_projekt.ui.tasks
+package com.example.a3tracker_projekt.api.tasks
 
 enum class TaskResult {
     SUCCESS,

@@ -1,17 +1,15 @@
 package com.example.a3tracker_projekt
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import com.example.a3tracker_projekt.api.users.MyApplication
 import com.example.projekt.R
 import com.example.projekt.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,31 +22,32 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_login, R.id.navigation_tasks
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
+
+        val prefs = this.getPreferences(MODE_PRIVATE)
+        val token = prefs.getString("token", "")
+        val deadline = prefs.getLong("deadline", 0L)
+
+        Log.i("xxx", "token: " + token)
+        val isValid = true
+        if (!token.equals("") && isValid) {
+            MyApplication.token = token!!
+            MyApplication.email = prefs.getString("email", "")!!
+        }
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.splashScreenFragment ) {
+            if (destination.id == R.id.navigation_login) {
                 navView.visibility = View.GONE
-            }
-            else if(destination.id == R.id.navigation_login ) {
-                navView.visibility = View.GONE
-            }
-            else {
+            } else {
                 navView.visibility = View.VISIBLE
             }
         }
         navView.setOnItemSelectedListener {
             when (it.itemId) {
+                R.id.activitiesFragment -> {
+                    navController.navigate(R.id.activitiesFragment)
+                    true
+                }
                 R.id.taskFragment -> {
                     navController.navigate(R.id.taskFragment)
                     true

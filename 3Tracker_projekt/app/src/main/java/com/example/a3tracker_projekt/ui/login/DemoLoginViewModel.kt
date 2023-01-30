@@ -6,20 +6,20 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.a3tracker_projekt.api.login.LoginRequest
-import com.example.a3tracker_projekt.api.user.Application
-import com.example.a3tracker_projekt.api.user.Archive
+import com.example.a3tracker_projekt.api.users.MyApplication
+import com.example.a3tracker_projekt.api.users.TrackerRepository
 import com.example.a3tracker_projekt.ui.login.LoginResult
 import kotlinx.coroutines.launch
 
 class DemoLoginViewModelFactory(
-    private val archive: Archive
+    private val archive: TrackerRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return DemoLoginViewModel(archive) as T
     }
 }
 
-class DemoLoginViewModel(val archive: Archive) : ViewModel() {
+class DemoLoginViewModel(val archive: TrackerRepository) : ViewModel() {
 
     var loginResult: MutableLiveData<LoginResult> = MutableLiveData()
 
@@ -29,8 +29,8 @@ class DemoLoginViewModel(val archive: Archive) : ViewModel() {
                 val response = archive.login(request)
                 if (response.isSuccessful) {
 
-                    Application.token = response.body()!!.token
-                    Application.deadline = response.body()!!.deadline
+                    MyApplication.token = response.body()!!.token
+                    MyApplication.deadline = response.body()!!.deadline
 
                     loginResult.value = LoginResult.SUCCESS
                     Log.i("xxx", response.body().toString())

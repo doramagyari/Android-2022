@@ -1,26 +1,24 @@
-package com.example.a3tracker_projekt.api.user
+package com.example.a3tracker_projekt.api.users
 
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.api.login.LoginResponse
-import com.example.a3tracker_projekt.api.profile.ProfileRequest
-import com.example.a3tracker_projekt.api.profile.ProfileResponse
-import com.example.a3tracker_projekt.api.task.TaskRequest
-import com.example.a3tracker_projekt.api.task.TaskResponse
+import com.example.a3tracker_projekt.api.tasks.TaskRequest
+import com.example.a3tracker_projekt.api.tasks.TaskResponse
 import com.example.a3tracker_projekt.ui.groups.Group
 import com.example.a3tracker_projekt.ui.tasks.Task
 import retrofit2.Response
 
-class Archive {
+class TrackerRepository {
 
     suspend fun login(request: LoginRequest): Response<LoginResponse> {
         return RetrofitInstance.api.login(request)
     }
 
-    suspend fun getUsers(token: String): Response<ArrayList<User>> {
+    suspend fun getUsers(token: String): Response<ArrayList<MyUser>> {
         return RetrofitInstance.api.getUsers(token)
     }
 
-    suspend fun getMyUser(token: String): Response<User> {
+    suspend fun getMyUser(token: String): Response<MyUser> {
         return RetrofitInstance.api.getMyUser(token)
     }
 
@@ -36,7 +34,7 @@ class Archive {
         return RetrofitInstance.api.getDepartments(token)
     }
 
-    suspend fun getDepartmentMembers(token: String, departmentId: Int): Response<ArrayList<User>> {
+    suspend fun getDepartmentMembers(token: String, departmentId: Int): Response<ArrayList<MyUser>> {
         return RetrofitInstance.api.getDepartmentMembers(token, departmentId)
     }
 

@@ -1,6 +1,7 @@
-package com.example.a3tracker_projekt.api.task
+package com.example.a3tracker_projekt.api.tasks
 
 import com.google.gson.annotations.SerializedName
+
 
 data class TaskRequest(
     @SerializedName("title")

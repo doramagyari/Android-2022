@@ -1,9 +1,16 @@
 package com.example.a3tracker_projekt.ui.groups
 
+import com.example.a3tracker_projekt.api.users.MyUser
+import com.example.a3tracker_projekt.ui.activities.Member
+import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.JsonClass
 
-import kotlin.collections.ArrayList
 
+@JsonClass(generateAdapter = true)
 data class Group(
-    var name: String,
-    var members: ArrayList<com.example.a3tracker_projekt.ui.activities.Member>
+    @SerializedName("ID")
+    var ID: Int,
+    @SerializedName("name")
+    var name: ArrayList<Member>,
+    var members: ArrayList<MyUser>
 )

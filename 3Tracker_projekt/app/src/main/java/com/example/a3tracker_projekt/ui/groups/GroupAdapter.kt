@@ -23,12 +23,7 @@ class GroupAdapter(private val groups: List<Group>) :
 
     override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
         val currentItem = groups[position]
-        holder.groupName.text = currentItem.name
-
-        holder.memberRecyclerView.setHasFixedSize(true)
-        holder.memberRecyclerView.layoutManager = LinearLayoutManager(holder.itemView.context)
-        val adapter = GroupMembers(currentItem.members)
-        holder.memberRecyclerView.adapter = adapter
+        holder.groupName.text = currentItem.name.toString()
     }
 
     override fun getItemCount(): Int {

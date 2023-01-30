@@ -2,23 +2,20 @@ package com.example.a3tracker_projekt.ui.profile
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.a3tracker_projekt.api.user.Archive
-import com.example.a3tracker_projekt.ui.shared.ProfileViewModel
-import com.example.a3tracker_projekt.ui.shared.ProfileViewModelFactory
+import com.example.a3tracker_projekt.api.users.TrackerRepository
 import com.example.projekt.R
 
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import java.util.Date
 
 class ProfileFragment : Fragment() {
 
@@ -38,7 +35,7 @@ class ProfileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val factory = ProfileViewModelFactory(Archive())
+        val factory = ProfileViewModelFactory(TrackerRepository())
         userListViewModel = ViewModelProvider(this, factory).get(ProfileViewModel::class.java)
     }
 

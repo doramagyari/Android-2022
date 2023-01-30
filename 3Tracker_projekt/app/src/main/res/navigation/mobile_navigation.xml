@@ -10,6 +10,11 @@
         android:name="com.example.a3tracker_projekt.ui.login.DemoLoginFragment"
         android:label="fragment_demo_login"
         tools:layout="@layout/fragment_demo_login" >
+
+        <!-- <action-->
+        <!--            android:id="@+id/action_navigation_login_to_activityFragment"-->
+        <!--            app:destination="@id/activityFragment" />-->
+
         <action
             android:id="@+id/action_navigation_login_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -20,7 +25,7 @@
         android:label="fragment_group"
         tools:layout="@layout/fragment_group" >
         <action
-            android:id="@+id/action_groupFragment_to_tasksFragment"
+            android:id="@+id/action_groupFragment_to_taskFragment"
             app:destination="@id/taskFragment" />
 
         <action
@@ -38,30 +43,53 @@
             app:destination="@id/groupFragment" />
 
         <action
-            android:id="@+id/action_profileFragment_to_tasksFragment"
+            android:id="@+id/action_profileFragment_to_taskFragment"
             app:destination="@id/taskFragment" />
     </fragment>
 
     <fragment
 
-        android:id="@+id/navigation_tasks"
+        android:id="@+id/taskFragment"
         android:name="com.example.a3tracker_projekt.ui.tasks.TaskFragment"
         android:label="fragment_task"
         tools:layout="@layout/fragment_task" >
+
+        <action
+            android:id="@+id/action_taskFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
 
         <action
             android:id="@+id/action_taskFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_taskFragment_to_createTaskFragment"
-            app:destination="@id/createTask" />
+            app:destination="@id/createTaskFragment" />
+
+        <action
+            android:id="@+id/action_taskFragment_to_taskInfoFragment"
+            app:destination="@id/taskInfoFragment" />
     </fragment>
 
     <fragment
-    android:id="@+id/createTask"
-    android:name="com.example.a3tracker_projekt.ui.tasks.CreateTask"
+    android:id="@+id/createTaskFragment"
+    android:name="com.example.a3tracker_projekt.ui.tasks.CreateTaskFragment"
     android:label="fragment_create_task"
-    tools:layout="@layout/fragment_create_task" />
+    tools:layout="@layout/fragment_create_task" >
+        <action
+        android:id="@+id/action_CreateTaskFragment_to_taskFragment"
+        app:destination="@id/taskFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskInfoFragment"
+        android:name="com.example.a3tracker_projekt.ui.tasks.TaskInfoFragment"
+        android:label="fragment_task_info"
+        tools:layout="@layout/fragment_task_info" >
+        <action
+            android:id="@+id/action_taskInfoFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.example.a3tracker_projekt.ui.splash_screen.SplashScreenFragment"

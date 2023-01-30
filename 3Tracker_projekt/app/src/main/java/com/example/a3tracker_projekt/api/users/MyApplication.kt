@@ -1,8 +1,8 @@
-package com.example.a3tracker_projekt.api.user
+package com.example.a3tracker_projekt.api.users
 
 import android.app.Application
 
-class Application : Application() {
+class MyApplication : Application() {
     companion object {
         var token: String = ""
         var deadline: Long = 0L

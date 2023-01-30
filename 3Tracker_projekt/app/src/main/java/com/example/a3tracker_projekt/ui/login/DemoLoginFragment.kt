@@ -12,12 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.a3tracker_projekt.api.login.LoginRequest
-import com.example.a3tracker_projekt.api.user.Application
-import com.example.a3tracker_projekt.api.user.Archive
+import com.example.a3tracker_projekt.api.users.MyApplication
+import com.example.a3tracker_projekt.api.users.TrackerRepository
 import com.example.a3tracker_projekt.ui.shared.DemoLoginViewModel
 import com.example.a3tracker_projekt.ui.shared.DemoLoginViewModelFactory
 import com.example.projekt.R
-import com.example.projekt.databinding.FragmentDemoLoginBinding
 
 class DemoLoginFragment : Fragment() {
 
@@ -71,7 +70,7 @@ class DemoLoginFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val factory = DemoLoginViewModelFactory(Archive())
+        val factory = DemoLoginViewModelFactory(TrackerRepository())
         DemologinViewModel = ViewModelProvider(this, factory).get(DemoLoginViewModel::class.java)
     }
 
@@ -121,8 +120,8 @@ class DemoLoginFragment : Fragment() {
             if ( it == LoginResult.SUCCESS ) {
                 val prefs = requireActivity().getPreferences(Context.MODE_PRIVATE)
                 val edit = prefs.edit()
-                edit.putString("token", Application.token)
-                edit.putLong("deadline", Application.deadline)
+                edit.putString("token", MyApplication.token)
+                edit.putLong("deadline", MyApplication.deadline)
                 edit.putString("email", editText1.text.toString())
                 edit.apply()
                 findNavController().navigate(R.id.profileFragment)
