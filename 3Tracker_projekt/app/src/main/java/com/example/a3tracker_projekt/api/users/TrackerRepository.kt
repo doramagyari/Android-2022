@@ -7,7 +7,7 @@ import com.example.a3tracker_projekt.api.profile.ProfileResponse
 import com.example.a3tracker_projekt.api.tasks.TaskRequest
 import com.example.a3tracker_projekt.api.tasks.TaskResponse
 import com.example.a3tracker_projekt.ui.groups.Group
-import com.example.a3tracker_projekt.ui.tasks.Task
+import okhttp3.internal.concurrent.Task
 import retrofit2.Response
 
 class TrackerRepository {

@@ -8,13 +8,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.a3tracker_projekt.api.tasks.TaskRequest
 import com.example.a3tracker_projekt.api.tasks.TaskResult
 import com.example.a3tracker_projekt.api.users.MyApplication
-import com.example.a3tracker_projekt.api.users.TrackerRepository
 import com.example.a3tracker_projekt.api.users.MyUser
+import com.example.a3tracker_projekt.api.users.TrackerRepository
 import com.example.a3tracker_projekt.ui.groups.Group
-import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.JsonClass
 import kotlinx.coroutines.launch
-import java.util.*
+
 
 class TaskViewModelFactory(
     private val repository: TrackerRepository
@@ -136,3 +134,4 @@ class TaskViewModel(val repository: TrackerRepository) : ViewModel() {
 //    }
 //
 //}
+

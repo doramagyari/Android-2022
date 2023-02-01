@@ -18,6 +18,7 @@ class GroupViewModelFactory(
     }
 }
 
+
 class GroupViewModel(val repository: TrackerRepository) : ViewModel() {
     var groups = MutableLiveData<ArrayList<Group>>()
     var members = MutableLiveData<ArrayList<MyUser>>()
@@ -52,5 +53,5 @@ class GroupViewModel(val repository: TrackerRepository) : ViewModel() {
             }
         }
     }
-
 }
+

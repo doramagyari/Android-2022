@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.a3tracker_projekt.api.tasks.TaskRequest
@@ -20,15 +22,15 @@ class CreateTaskFragment : Fragment() {
 
     var TAG = "CreateTaskFragment"
     private lateinit var taskListViewModel: TaskViewModel
-    lateinit var project : EditText
-    lateinit var name : EditText
-    lateinit var assignee : EditText
-    lateinit var priority : EditText
-    lateinit var deadline : EditText
-    lateinit var department : EditText
-    lateinit var status : EditText
-    lateinit var description : EditText
-    lateinit var createButton : Button
+    lateinit var project: EditText
+    lateinit var name: EditText
+    lateinit var assignee: EditText
+    lateinit var priority: EditText
+    lateinit var deadline: EditText
+    lateinit var department: EditText
+    lateinit var status: EditText
+    lateinit var description: EditText
+    lateinit var createButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +67,8 @@ class CreateTaskFragment : Fragment() {
                 checkInputFor(priority.text.toString()) ||
                 checkInputFor(deadline.text.toString()) ||
                 checkInputFor(department.text.toString()) ||
-                checkInputFor(status.text.toString())) {
+                checkInputFor(status.text.toString())
+            ) {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.empty_name_error_message),
@@ -77,24 +80,25 @@ class CreateTaskFragment : Fragment() {
 
                 taskListViewModel.createTask(
                     TaskRequest(
-                    name.text.toString(),
-                    description.text.toString(),
-                    assignee.text.toString().toInt(),
-                    priority.text.toString().toInt(),
-                    deadline.text.toString().toLong(),
-                    department.text.toString().toInt(),
-                    status.text.toString().toInt())
+                        name.text.toString(),
+                        description.text.toString(),
+                        assignee.text.toString().toInt(),
+                        priority.text.toString().toInt(),
+                        deadline.text.toString().toLong(),
+                        department.text.toString().toInt(),
+                        status.text.toString().toInt()
+                    )
                 )
                 taskListViewModel.createTaskResult.observe(viewLifecycleOwner) {
                     // Save data to preferences
-                    if( it == TaskResult.INVALID_INPUTS){
+                    if (it == TaskResult.INVALID_INPUTS) {
                         Toast.makeText(
                             this.requireContext(),
                             "Invalid inputs",
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                    if ( it == TaskResult.SUCCESS ) {
+                    if (it == TaskResult.SUCCESS) {
                         findNavController().navigate(R.id.taskFragment)
                     }
                 }
@@ -114,5 +118,5 @@ class CreateTaskFragment : Fragment() {
         description = view.findViewById(R.id.addDescription)
         createButton = view.findViewById(R.id.createTask)
     }
-
 }
+

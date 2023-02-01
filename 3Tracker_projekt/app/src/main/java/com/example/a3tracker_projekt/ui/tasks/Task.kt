@@ -15,16 +15,16 @@ data class Task(
     var created_time: Long,
     @SerializedName("created_by_user_ID")
     var created_by_user_ID: Int,
-    @SerializedName("department_ID")
-    var department_ID: Int,
-    @SerializedName("status")
-    var status: String,
-    @SerializedName("progress")
-    var progress: Int,
     @SerializedName("asigned_to_user_ID")
     var asigned_to_user_ID: Int,
     @SerializedName("priority")
-    var priority: Int,
+    var priority: String,
     @SerializedName("deadline")
     var deadline: Int,
+    @SerializedName("department_ID")
+    var department_ID: Int,
+    @SerializedName("status")
+    var status: Int,
+    @SerializedName("progress")
+    var progress: Int
 )

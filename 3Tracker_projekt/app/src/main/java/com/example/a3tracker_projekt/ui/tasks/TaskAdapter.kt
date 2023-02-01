@@ -12,7 +12,7 @@ interface OnItemClickListener{
     fun onInfoClick(position: Int)
 }
 
-class TaskAdapter(private val items: List<Task>, private val itemsInfo: ArrayList<TaskInfo>, private val listener: TaskFragment): RecyclerView.Adapter<TaskAdapter.CardViewHolder>() {
+class TaskAdapter(private val items: ArrayList<com.example.a3tracker_projekt.ui.tasks.Task>, private val itemsInfo: ArrayList<TaskInfo>, private val listener: TaskFragment): RecyclerView.Adapter<TaskAdapter.CardViewHolder>() {
 
     inner class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
@@ -70,3 +70,4 @@ class TaskAdapter(private val items: List<Task>, private val itemsInfo: ArrayLis
     }
 
 }
+
