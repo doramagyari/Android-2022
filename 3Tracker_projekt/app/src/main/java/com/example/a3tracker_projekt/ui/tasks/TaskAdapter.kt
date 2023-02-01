@@ -45,7 +45,7 @@ class TaskAdapter(private val items: List<Task>, private val itemsInfo: ArrayLis
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.example_item_task,
+            R.layout.recycleview_example_item,
             parent, false
         )
         return CardViewHolder(itemView)

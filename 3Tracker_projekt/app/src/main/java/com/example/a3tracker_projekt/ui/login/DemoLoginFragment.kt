@@ -14,8 +14,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.api.users.MyApplication
 import com.example.a3tracker_projekt.api.users.TrackerRepository
-import com.example.a3tracker_projekt.ui.shared.DemoLoginViewModel
-import com.example.a3tracker_projekt.ui.shared.DemoLoginViewModelFactory
 import com.example.projekt.R
 
 class DemoLoginFragment : Fragment() {

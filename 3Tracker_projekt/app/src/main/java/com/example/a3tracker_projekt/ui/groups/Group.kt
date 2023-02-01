@@ -11,6 +11,6 @@ data class Group(
     @SerializedName("ID")
     var ID: Int,
     @SerializedName("name")
-    var name: ArrayList<Member>,
+    var name: String,
     var members: ArrayList<MyUser>
 )

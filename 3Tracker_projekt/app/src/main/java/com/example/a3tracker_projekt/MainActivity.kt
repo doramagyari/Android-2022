@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
         }
         navView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.activitiesFragment -> {
-                    navController.navigate(R.id.activitiesFragment)
+                R.id.activityFragment -> {
+                    navController.navigate(R.id.activityFragment)
                     true
                 }
                 R.id.taskFragment -> {

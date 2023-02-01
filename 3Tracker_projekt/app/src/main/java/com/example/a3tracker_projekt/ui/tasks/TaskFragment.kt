@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a3tracker_projekt.api.users.TrackerRepository
 import com.example.projekt.R
 
 
@@ -23,6 +25,8 @@ class TaskFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val factory = TaskViewModelFactory(TrackerRepository())
+        taskListViewModel = ViewModelProvider(this, factory).get(TaskViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -51,7 +55,7 @@ class TaskFragment : Fragment() {
         taskListViewModel.tasks.observe(viewLifecycleOwner) {
             val tasks = taskListViewModel.tasks.value
 //            list = tasks!!
-            var recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+            var recyclerView: RecyclerView = view.findViewById(R.id.recycler_view)
             adapter = TaskAdapter(tasks!!, taskListViewModel.tasksInfo, this)
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -86,12 +90,12 @@ class TaskFragment : Fragment() {
 
     private fun registerListeners() {
         addButton.setOnClickListener{
-            findNavController().navigate(R.id.createTask)
+            findNavController().navigate(R.id.createTaskFragment)
         }
     }
 
     private fun initViewItems(view: View) {
-        addButton = view.findViewById(R.id.createTask)
+        addButton = view.findViewById(R.id.addTask)
     }
 
 }

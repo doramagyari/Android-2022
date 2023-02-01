@@ -2,6 +2,8 @@ package com.example.a3tracker_projekt.api.users
 
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.api.login.LoginResponse
+import com.example.a3tracker_projekt.api.profile.ProfileRequest
+import com.example.a3tracker_projekt.api.profile.ProfileResponse
 import com.example.a3tracker_projekt.api.tasks.TaskRequest
 import com.example.a3tracker_projekt.api.tasks.TaskResponse
 import com.example.a3tracker_projekt.ui.groups.Group
@@ -20,6 +22,10 @@ class TrackerRepository {
 
     suspend fun getMyUser(token: String): Response<MyUser> {
         return RetrofitInstance.api.getMyUser(token)
+    }
+
+    suspend fun updateProfile(request: ProfileRequest, token: String): Response<ProfileResponse> {
+        return RetrofitInstance.api.updateProfile(request, token)
     }
 
     suspend fun getMyTasks(token: String): Response<ArrayList<Task>> {

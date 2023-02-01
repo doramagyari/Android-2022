@@ -32,6 +32,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var userListViewModel: ProfileViewModel
     lateinit var logOutButton : Button
+    lateinit var profileUpdateButton :Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +69,7 @@ class ProfileFragment : Fragment() {
             roleType.text = user.type.toString()
             phone.text = user.phone_number
             Glide.with(this)
-                .load(user.imageUrl)
+                .load(user.image)
                 .apply(RequestOptions().override(600, 200))
                 .circleCrop()
                 .into(profilePic)
@@ -77,12 +78,16 @@ class ProfileFragment : Fragment() {
     }
 
     private fun registerListeners() {
+        profileUpdateButton.setOnClickListener {
+            findNavController().navigate(R.id.updateProfile)
+        }
         logOutButton.setOnClickListener {
             findNavController().navigate(R.id.navigation_login)
         }
     }
 
     private fun initViewItems(view: View) {
+        profileUpdateButton = view.findViewById(R.id.updateButton)
         logOutButton = view.findViewById(R.id.logOut)
 //        username = view.findViewById(R.id.profileUser)
 //        email = view.findViewById(R.id.profileEmail)
