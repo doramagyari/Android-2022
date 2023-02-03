@@ -1,5 +1,8 @@
+package com.example.a3tracker_projekt.ui.login
+
 import android.content.Context
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,9 +16,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.api.users.MyApplication
 import com.example.a3tracker_projekt.repo.TrackerRepository
-import com.example.a3tracker_projekt.ui.login.DemoLoginViewModel
-import com.example.a3tracker_projekt.ui.login.DemoLoginViewModelFactory
-import com.example.a3tracker_projekt.ui.login.LoginResult
 import com.example.projekt.R
 
 class DemoLoginFragment : Fragment() {
@@ -86,8 +86,33 @@ class DemoLoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViewItems()
-        registerListeners()
+
+        showPwImg = requireView().findViewById(R.id.imageViewShowPW)
+        hidePwImg = requireView().findViewById(R.id.imageViewHidePW)
+        editText1 = requireView().findViewById(R.id.project_demo_email)
+        editText2 = requireView().findViewById(R.id.project_demo_password)
+        button = requireView().findViewById(R.id.login_button)
+
+
+        val prefs = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        if (!prefs.getString("email", "").equals("")) {
+            editText1.setText(prefs.getString("email", ""))
+        }
+
+        button.setOnClickListener {
+            val email = editText1.text.toString().trim()
+            val password = editText2.text.toString().trim()
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(
+                    this.requireContext(),
+                    "Please, enter your email and password",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                DemologinViewModel.login(LoginRequest(email, password))
+            }
+        }
+
         DemologinViewModel.loginResult.observe(viewLifecycleOwner) {
             // Save data to preferences
             if (it == LoginResult.INVALID_CREDENTIALS) {
@@ -108,34 +133,20 @@ class DemoLoginFragment : Fragment() {
             }
         }
 
-        val prefs = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        if (!prefs.getString("email", "").equals("")) {
-            editText1.setText(prefs.getString("email", ""))
+        showPwImg.setOnClickListener{
+            hidePwImg.visibility = View.VISIBLE
+            showPwImg.visibility = View.GONE
+            editText2.transformationMethod = null
         }
-    }
 
-    private fun initViewItems() {
-        showPwImg = requireView().findViewById(R.id.imageViewShowPW)
-        hidePwImg = requireView().findViewById(R.id.imageViewHidePW)
-        editText1 = requireView().findViewById(R.id.project_demo_email)
-        editText2 = requireView().findViewById(R.id.project_demo_password)
-        button = requireView().findViewById(R.id.login_button)
-    }
-
-
-    private fun registerListeners() {
-        button.setOnClickListener {
-            val email = editText1.text.toString().trim()
-            val password = editText2.text.toString().trim()
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(
-                    this.requireContext(),
-                    "Please, enter your email and password",
-                    Toast.LENGTH_LONG
-                ).show()
-            } else {
-                DemologinViewModel.login(LoginRequest(email, password))
-            }
+        hidePwImg.setOnClickListener{
+            showPwImg.visibility = View.VISIBLE
+            hidePwImg.visibility = View.GONE
+            editText2.transformationMethod = PasswordTransformationMethod()
         }
+
+
     }
+
+
 }

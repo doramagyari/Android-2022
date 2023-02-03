@@ -1,5 +1,7 @@
 package com.example.a3tracker_projekt.api.users
 
+import com.example.a3tracker_projekt.api.login.LoginResponse
+import com.example.a3tracker_projekt.ui.profile.Profile
 import com.squareup.moshi.JsonClass
 import java.util.Date
 
@@ -13,5 +15,8 @@ data class MyUser(
     var location: String,
     var phone_number: String,
     var department_id: Int,
-    var image: String
+    var image: String,
+
+    var loginResponse: LoginResponse = LoginResponse(123456,"",420),
+    var mentor : Profile? = null
 )

@@ -146,22 +146,32 @@ class ProfileFragment : Fragment() {
             val roleType: TextView = view.findViewById(R.id.profileRoleType)
             val phone: TextView = view.findViewById(R.id.profilePhoneNumber)
             val profilePic: ImageView = view.findViewById(R.id.imageView)
+
+            var mentoredBy : TextView = view.findViewById(R.id.textUsersMentor)
+            var mentorPicture : ImageView = view.findViewById(R.id.imageMentor)
+            var mentorName : TextView = view.findViewById(R.id.textMentorName)
+
+
             userListViewModel.readUsers()
             userListViewModel.user.observe(viewLifecycleOwner) {
-                val user = userListViewModel.user.value
-                username.text = user!!.first_name.plus(" ".plus(user.last_name))
-                email.text = user.email
-                address.text = user.location
-                roleType.text = user.type.toString()
-                phone.text = user.phone_number
-                Glide.with(this)
-                    .load(user.image)
-                    .apply(RequestOptions().override(600, 200))
-                    .circleCrop()
-                    .into(profilePic)
-                Log.i("xxx", user.toString())
+                 Log.i("xxx", userListViewModel.user.value.toString())
+//                username.text = user!!.first_name.plus(" ".plus(user.last_name))
+//                email.text = user.email
+//                address.text = user.location
+//                roleType.text = user.type.toString()
+//                phone.text = user.phone_number
+
+//                Glide.with(this)
+//                    .load(user.image)
+//                    .apply(RequestOptions().override(600, 200))
+//                    .circleCrop()
+//                    .into(profilePic)
+//                Log.i("xxx", user.toString())
             }
+
+
         }
+
 
         private fun registerListeners() {
             profileUpdateButton.setOnClickListener {

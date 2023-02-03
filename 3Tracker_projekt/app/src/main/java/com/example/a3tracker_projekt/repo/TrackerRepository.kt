@@ -9,6 +9,7 @@ import com.example.a3tracker_projekt.api.tasks.TaskRequest
 import com.example.a3tracker_projekt.api.tasks.TaskResponse
 import com.example.a3tracker_projekt.api.users.MyUser
 import com.example.a3tracker_projekt.ui.groups.Group
+import com.example.a3tracker_projekt.ui.profile.Profile
 import com.example.a3tracker_projekt.ui.tasks.Task
 import retrofit2.Response
 
@@ -34,6 +35,9 @@ class TrackerRepository {
         return RetrofitInstance.api.updateProfile(request, token)
     }
 
+//    suspend fun getMentor(token: String): Response<MyUser> {
+//        return RetrofitInstance.api.getMentor(token)
+//    }
 
 
     suspend fun createTask(request: TaskRequest, token: String): Response<TaskResponse> {
