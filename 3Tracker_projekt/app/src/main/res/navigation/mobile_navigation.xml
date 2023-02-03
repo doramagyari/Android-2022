@@ -91,9 +91,9 @@
 
     <fragment
         android:id="@+id/taskInfoFragment"
-        android:name="com.example.a3tracker_projekt.ui.tasks.TaskInfoFragment"
+        android:name="com.example.a3tracker_projekt.ui.tasks.TaskDetailFragment"
         android:label="fragment_task_info"
-        tools:layout="@layout/fragment_task_info" >
+        tools:layout="@layout/fragment_task_detail" >
         <action
             android:id="@+id/action_taskInfoFragment_to_taskFragment"
             app:destination="@id/taskFragment" />

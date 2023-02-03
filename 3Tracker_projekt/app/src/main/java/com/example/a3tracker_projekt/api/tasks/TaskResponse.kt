@@ -6,3 +6,4 @@ data class TaskResponse (
     @SerializedName("message")
     var message : String
 )
+

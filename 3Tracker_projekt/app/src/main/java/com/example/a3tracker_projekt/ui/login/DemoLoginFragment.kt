@@ -1,5 +1,3 @@
-package com.example.a3tracker_projekt.ui.login
-
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,18 +5,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.api.users.MyApplication
-import com.example.a3tracker_projekt.api.users.TrackerRepository
+import com.example.a3tracker_projekt.repo.TrackerRepository
+import com.example.a3tracker_projekt.ui.login.DemoLoginViewModel
+import com.example.a3tracker_projekt.ui.login.DemoLoginViewModelFactory
+import com.example.a3tracker_projekt.ui.login.LoginResult
 import com.example.projekt.R
 
 class DemoLoginFragment : Fragment() {
 
-//    private var _binding: FragmentDemoLoginBinding? = null
+    //    private var _binding: FragmentDemoLoginBinding? = null
 //
 //    private val binding get() = _binding!!
 //
@@ -65,6 +67,8 @@ class DemoLoginFragment : Fragment() {
     private lateinit var editText1: EditText
     private lateinit var editText2: EditText
     private lateinit var button: Button
+    private lateinit var showPwImg: ImageView
+    private lateinit var hidePwImg: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,16 +86,44 @@ class DemoLoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        editText1 = view.findViewById(R.id.project_demo_email)
-        editText2 = view.findViewById(R.id.project_demo_password)
-        button= view.findViewById(R.id.login_button)
+        initViewItems()
+        registerListeners()
+        DemologinViewModel.loginResult.observe(viewLifecycleOwner) {
+            // Save data to preferences
+            if (it == LoginResult.INVALID_CREDENTIALS) {
+                Toast.makeText(
+                    this.requireContext(),
+                    "Invalid credentials",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            if (it == LoginResult.SUCCESS) {
+                val prefs = requireActivity().getPreferences(Context.MODE_PRIVATE)
+                val edit = prefs.edit()
+                edit.putString("token", MyApplication.token)
+                edit.putLong("deadline", MyApplication.deadline)
+                edit.putString("email", editText1.text.toString())
+                edit.apply()
+                findNavController().navigate(R.id.profileFragment)
+            }
+        }
 
         val prefs = requireActivity().getPreferences(Context.MODE_PRIVATE)
         if (!prefs.getString("email", "").equals("")) {
             editText1.setText(prefs.getString("email", ""))
         }
+    }
 
+    private fun initViewItems() {
+        showPwImg = requireView().findViewById(R.id.imageViewShowPW)
+        hidePwImg = requireView().findViewById(R.id.imageViewHidePW)
+        editText1 = requireView().findViewById(R.id.project_demo_email)
+        editText2 = requireView().findViewById(R.id.project_demo_password)
+        button = requireView().findViewById(R.id.login_button)
+    }
+
+
+    private fun registerListeners() {
         button.setOnClickListener {
             val email = editText1.text.toString().trim()
             val password = editText2.text.toString().trim()
@@ -105,28 +137,5 @@ class DemoLoginFragment : Fragment() {
                 DemologinViewModel.login(LoginRequest(email, password))
             }
         }
-
-        DemologinViewModel.loginResult.observe(viewLifecycleOwner) {
-            // Save data to preferences
-            if( it == LoginResult.INVALID_CREDENTIALS){
-                Toast.makeText(
-                    this.requireContext(),
-                    "Invalid credentials",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            if ( it == LoginResult.SUCCESS ) {
-                val prefs = requireActivity().getPreferences(Context.MODE_PRIVATE)
-                val edit = prefs.edit()
-                edit.putString("token", MyApplication.token)
-                edit.putLong("deadline", MyApplication.deadline)
-                edit.putString("email", editText1.text.toString())
-                edit.apply()
-                findNavController().navigate(R.id.profileFragment)
-            }
-        }
-
     }
-
-
 }

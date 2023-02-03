@@ -1,14 +1,15 @@
-package com.example.a3tracker_projekt.api.users
+package com.example.a3tracker_projekt.api.interfaces
 
-import com.example.a3tracker_projekt.api.Constants
+import com.example.a3tracker_projekt.api.objects.Constants
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.api.login.LoginResponse
 import com.example.a3tracker_projekt.api.profile.ProfileRequest
 import com.example.a3tracker_projekt.api.profile.ProfileResponse
 import com.example.a3tracker_projekt.api.tasks.TaskRequest
 import com.example.a3tracker_projekt.api.tasks.TaskResponse
+import com.example.a3tracker_projekt.api.users.MyUser
 import com.example.a3tracker_projekt.ui.groups.Group
-import okhttp3.internal.concurrent.Task
+import com.example.a3tracker_projekt.ui.tasks.Task
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

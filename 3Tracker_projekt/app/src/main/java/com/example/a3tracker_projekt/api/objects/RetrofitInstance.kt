@@ -1,6 +1,7 @@
-package com.example.a3tracker_projekt.api.users
+package com.example.a3tracker_projekt.api.objects
 
-import com.example.a3tracker_projekt.api.Constants.BASE_URL
+import com.example.a3tracker_projekt.api.objects.Constants.BASE_URL
+import com.example.a3tracker_projekt.api.interfaces.MyUserApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

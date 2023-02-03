@@ -1,4 +1,4 @@
-package com.example.a3tracker_projekt.api
+package com.example.a3tracker_projekt.api.objects
 
 object Constants {
     const val BASE_URL = "https://tracker-3track.a2hosted.com/"

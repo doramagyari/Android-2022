@@ -1,4 +1,4 @@
-package com.example.a3tracker_projekt.api
+package com.example.a3tracker_projekt.api.objects
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object ApiClient {
+
     var mHttpLoggingInterceptor = HttpLoggingInterceptor()
         .setLevel(HttpLoggingInterceptor.Level.BODY)
 
@@ -29,4 +30,5 @@ object ApiClient {
             }
             return mRetrofit
         }
+
 }

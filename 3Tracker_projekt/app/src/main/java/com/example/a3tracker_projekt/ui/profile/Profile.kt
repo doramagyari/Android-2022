@@ -8,3 +8,4 @@ data class Profile(
     var address: String,
     var roleType: String
 )
+

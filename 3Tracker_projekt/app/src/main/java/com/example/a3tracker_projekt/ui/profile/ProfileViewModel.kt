@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.a3tracker_projekt.api.profile.ProfileRequest
 import com.example.a3tracker_projekt.api.profile.ProfileResult
 import com.example.a3tracker_projekt.api.users.MyApplication
-import com.example.a3tracker_projekt.api.users.TrackerRepository
+import com.example.a3tracker_projekt.repo.TrackerRepository
 import com.example.a3tracker_projekt.api.users.MyUser
 import kotlinx.coroutines.launch
 
@@ -57,7 +57,7 @@ class ProfileViewModel(val repository: TrackerRepository) : ViewModel() {
             }
         }
     }
-    
+
 
 
 }

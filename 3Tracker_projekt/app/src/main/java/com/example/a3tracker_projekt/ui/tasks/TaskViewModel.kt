@@ -9,7 +9,7 @@ import com.example.a3tracker_projekt.api.tasks.TaskRequest
 import com.example.a3tracker_projekt.api.tasks.TaskResult
 import com.example.a3tracker_projekt.api.users.MyApplication
 import com.example.a3tracker_projekt.api.users.MyUser
-import com.example.a3tracker_projekt.api.users.TrackerRepository
+import com.example.a3tracker_projekt.repo.TrackerRepository
 import com.example.a3tracker_projekt.ui.groups.Group
 import kotlinx.coroutines.launch
 
@@ -24,12 +24,12 @@ class TaskViewModelFactory(
 
 class TaskViewModel(val repository: TrackerRepository) : ViewModel() {
     var tasks = MutableLiveData<ArrayList<Task>>()
-    var tasksInfo = ArrayList<TaskInfo>()
+    var tasksInfo = ArrayList<TaskDetail>()
     var users1 = MutableLiveData<ArrayList<MyUser>>()
     var users2 = MutableLiveData<ArrayList<MyUser>>()
     var departments = MutableLiveData<ArrayList<Group>>()
     var currentTask: Task = Task(0, "", "", 0, 0, 0, "", 0, 0, 0, 0)
-    var currentTaskInfo: TaskInfo = TaskInfo("", "", "")
+    var currentTaskInfo: TaskDetail = TaskDetail("", "", "")
 
     fun readTasks() {
         viewModelScope.launch {
@@ -56,8 +56,9 @@ class TaskViewModel(val repository: TrackerRepository) : ViewModel() {
                         val createdName = currentCreated?.first_name.plus(" ".plus(currentCreated?.last_name))
                         val currentAssigned = users2.value?.find{ it.ID == i.asigned_to_user_ID}
                         val assignedName = currentAssigned?.first_name.plus(" ".plus(currentAssigned?.last_name))
-                        val currentDepartment = departments.value?.find{ it.ID == i.department_ID};                        val departmentName = currentDepartment?.name.toString()
-                        val currentTask = TaskInfo(createdName, assignedName, departmentName)
+                        val currentDepartment = departments.value?.find{ it.ID == i.department_ID}
+                        val departmentName = currentDepartment?.name.toString()
+                        val currentTask = TaskDetail(createdName, assignedName, departmentName)
                         tasksInfo.add(currentTask)
                     }
                 } else{
@@ -106,6 +107,7 @@ class TaskViewModel(val repository: TrackerRepository) : ViewModel() {
     }
 
 }
+
 
 
 //class TaskViewModel : ViewModel() {

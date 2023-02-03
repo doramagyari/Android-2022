@@ -1,13 +1,15 @@
-package com.example.a3tracker_projekt.api.users
+package com.example.a3tracker_projekt.repo
 
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.api.login.LoginResponse
+import com.example.a3tracker_projekt.api.objects.RetrofitInstance
 import com.example.a3tracker_projekt.api.profile.ProfileRequest
 import com.example.a3tracker_projekt.api.profile.ProfileResponse
 import com.example.a3tracker_projekt.api.tasks.TaskRequest
 import com.example.a3tracker_projekt.api.tasks.TaskResponse
+import com.example.a3tracker_projekt.api.users.MyUser
 import com.example.a3tracker_projekt.ui.groups.Group
-import okhttp3.internal.concurrent.Task
+import com.example.a3tracker_projekt.ui.tasks.Task
 import retrofit2.Response
 
 class TrackerRepository {
@@ -24,13 +26,15 @@ class TrackerRepository {
         return RetrofitInstance.api.getMyUser(token)
     }
 
+    suspend fun getMyTasks(token: String): Response<ArrayList<Task>> {
+        return RetrofitInstance.api.getMyTasks(token)
+    }
+
     suspend fun updateProfile(request: ProfileRequest, token: String): Response<ProfileResponse> {
         return RetrofitInstance.api.updateProfile(request, token)
     }
 
-    suspend fun getMyTasks(token: String): Response<ArrayList<Task>> {
-        return RetrofitInstance.api.getMyTasks(token)
-    }
+
 
     suspend fun createTask(request: TaskRequest, token: String): Response<TaskResponse> {
         return RetrofitInstance.api.createTask(request, token)
@@ -47,4 +51,7 @@ class TrackerRepository {
     suspend fun getActivities(token: String): Response<ArrayList<Any>> {
         return RetrofitInstance.api.getActivities(token)
     }
+
+
 }
+

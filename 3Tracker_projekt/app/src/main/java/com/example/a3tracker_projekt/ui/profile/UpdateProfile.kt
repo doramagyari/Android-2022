@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.a3tracker_projekt.api.profile.ProfileRequest
 import com.example.a3tracker_projekt.api.profile.ProfileResult
-import com.example.a3tracker_projekt.api.users.TrackerRepository
+import com.example.a3tracker_projekt.repo.TrackerRepository
 import com.example.projekt.R
 
 class UpdateProfile : Fragment() {
@@ -79,11 +79,11 @@ class UpdateProfile : Fragment() {
 
                 userListViewModel.updateProfile(
                     ProfileRequest(
-                    lastName.text.toString(),
-                    firstName.text.toString(),
-                    location.text.toString(),
-                    phone.text.toString(),
-                    imageUrl.text.toString())
+                        lastName.text.toString(),
+                        firstName.text.toString(),
+                        location.text.toString(),
+                        phone.text.toString(),
+                        imageUrl.text.toString())
                 )
                 userListViewModel.updateProfileResult.observe(viewLifecycleOwner) {
                     // Save data to preferences

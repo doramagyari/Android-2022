@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a3tracker_projekt.api.users.TrackerRepository
+import com.example.a3tracker_projekt.repo.TrackerRepository
 import com.example.projekt.R
 
 

@@ -6,89 +6,76 @@
     android:layout_height="match_parent"
     tools:context="com.example.a3tracker_projekt.ui.profile.ProfileFragment">
 
-    <TextView
-        android:id="@+id/profileDescription"
+    <ImageView
+        android:id="@+id/line2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="21dp"
-        android:text="text"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/profileStartDate" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
-        android:text="Description: "
-        android:textSize="16sp"
+        android:layout_marginTop="15dp"
+        android:background="#000000"
+        android:src="@drawable/line"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-    <TextView
-        android:id="@+id/profileStartDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="20dp"
-        android:text="date"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/profileRoleType" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
-        android:text="Start Date: "
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/profilePhoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="293dp"
+        android:layout_marginBottom="171dp"
         android:text="phone number"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/divider4" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line3" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/textMentorName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
-        android:text="Phone Number: "
-        android:textSize="16sp"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="serif-monospace"
+        android:text="Mentor Name"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView99" />
+        app:layout_constraintTop_toBottomOf="@+id/imageMentor" />
 
-    <View
-        android:id="@+id/divider4"
-        android:layout_width="395dp"
-        android:layout_height="1dp"
+    <ImageView
+        android:id="@+id/organizationButton"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="33dp"
+        android:src="@drawable/organizationicon"
+        app:layout_constraintStart_toEndOf="@+id/profileAddress"
+        app:layout_constraintTop_toBottomOf="@+id/textUsersMentor" />
+
+    <TextView
+        android:id="@+id/textUsersMentor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
         android:layout_marginTop="10dp"
-        android:background="?android:attr/listDivider"
+        android:text="name's mentor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileUser" />
+        app:layout_constraintTop_toBottomOf="@+id/textMentorName" />
 
     <TextView
         android:id="@+id/profileUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="17dp"
-        android:text="USERNAME"
+
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="serif-monospace"
+        android:text="Name"
+        android:textAlignment="center"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -96,106 +83,129 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="26dp"
-        android:text="MY PROFILE"
-        android:textSize="34sp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="sans-serif-black"
+        android:text="My Profile"
+        android:textAlignment="center"
+        android:textColor="#1A1A1A"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textView99"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="29dp"
-        android:text="E-Mail: "
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider4" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:text="Address: "
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Role Type: "
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        android:layout_width="138dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/emptypp"
+        app:layout_constraintBottom_toTopOf="@+id/profileUser"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/profileEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="216dp"
         android:text="email"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView99"
-        app:layout_constraintTop_toBottomOf="@+id/divider4" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/profileAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="328dp"
+        android:layout_marginBottom="123dp"
         android:text="address"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/profilePhoneNumber" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/profileRoleType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="7dp"
+        android:fontFamily="sans-serif-black"
         android:text="role type"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/profileAddress" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileUser" />
 
-    <Button
+    <ImageView
+        android:id="@+id/imageMentor"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/emptypp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileRoleType" />
+
+
+    <ImageView
         android:id="@+id/updateButton"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="137dp"
+        android:src="@drawable/editprofile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUsersMentor" />
+
+    <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="UPDATE"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="11dp"
+        android:background="#000000"
+        android:src="@drawable/line"
+        app:layout_constraintBottom_toTopOf="@+id/profileEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/organizationButton" />
+
+    <ImageView
+        android:id="@+id/line3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="#000000"
+        android:src="@drawable/line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileEmail" />
+
+    <ImageView
+        android:id="@+id/line4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:background="#000000"
+        android:src="@drawable/line"
+        app:layout_constraintBottom_toTopOf="@+id/logOut"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/logOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="82dp"
+        android:layout_marginBottom="64dp"
         android:text="LOG OUT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

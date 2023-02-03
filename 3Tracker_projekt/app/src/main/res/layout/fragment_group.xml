@@ -4,26 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a3tracker_projekt.ui.groups.GroupFragment">
+    tools:context="com.example.a3tracker_projekt.ui.groups.GroupFragment"
+    >
+
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="126dp"
+        android:layout_height="34dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="MY GROUPS"
-        android:textSize="34sp"
+        android:fontFamily="sans-serif-black"
+        android:text="My Groups"
+        android:textColor="@color/black"
+        android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="#000000"
+        android:src="@drawable/line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/searchButton"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_search_24"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="68dp"
         android:padding="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/example_item_group">

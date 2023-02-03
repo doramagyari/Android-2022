@@ -12,7 +12,7 @@ interface OnItemClickListener{
     fun onInfoClick(position: Int)
 }
 
-class TaskAdapter(private val items: ArrayList<com.example.a3tracker_projekt.ui.tasks.Task>, private val itemsInfo: ArrayList<TaskInfo>, private val listener: TaskFragment): RecyclerView.Adapter<TaskAdapter.CardViewHolder>() {
+class TaskAdapter(private val items: List<Task>, private val itemsInfo: ArrayList<TaskDetail>, private val listener: TaskFragment): RecyclerView.Adapter<TaskAdapter.CardViewHolder>() {
 
     inner class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
@@ -45,7 +45,7 @@ class TaskAdapter(private val items: ArrayList<com.example.a3tracker_projekt.ui.
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.recycleview_example_item,
+            R.layout.example_item_task,
             parent, false
         )
         return CardViewHolder(itemView)
@@ -60,7 +60,7 @@ class TaskAdapter(private val items: ArrayList<com.example.a3tracker_projekt.ui.
             currentItem.created_time.toString()))
         holder.taskAssignee.text = currentItemInfo.assigned_to_user
         holder.taskDeadline.text = currentItem.deadline.toString()
-        holder.taskPriority.text = currentItem.priority.toString()
+        holder.taskPriority.text = currentItem.priority
         holder.taskDescription.text = currentItem.description
 //        holder.taskStatus.text = currentItem.status.toString()
     }
@@ -70,4 +70,3 @@ class TaskAdapter(private val items: ArrayList<com.example.a3tracker_projekt.ui.
     }
 
 }
-

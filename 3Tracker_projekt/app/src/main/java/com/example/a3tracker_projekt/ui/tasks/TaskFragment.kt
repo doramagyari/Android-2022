@@ -11,17 +11,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a3tracker_projekt.api.users.TrackerRepository
+import com.example.a3tracker_projekt.repo.TrackerRepository
 import com.example.projekt.R
 
 
 class TaskFragment : Fragment() {
 
+
     private lateinit var taskListViewModel: TaskViewModel
     lateinit var list: ArrayList<Task>
     lateinit var adapter: TaskAdapter
-    lateinit var addButton: ImageButton
-    lateinit var infoButton: Button
+    lateinit var addButton : ImageButton
+    lateinit var infoButton : Button
+    private lateinit var filterDropdown : Spinner
+    private val filters = mutableListOf("Recently Added","Active tasks","Closed tasks")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +49,7 @@ class TaskFragment : Fragment() {
         taskListViewModel.readTasks()
         taskListViewModel.tasks.observe(viewLifecycleOwner) {
             val tasks = taskListViewModel.tasks.value
-//            list = tasks!!
+            list = tasks!!
             var recyclerView: RecyclerView = view.findViewById(R.id.recycler_view)
             adapter = TaskAdapter(tasks!!, taskListViewModel.tasksInfo, this)
             recyclerView.adapter = adapter
@@ -58,7 +61,7 @@ class TaskFragment : Fragment() {
     fun onInfoClick(position: Int) {
         taskListViewModel.currentTask = taskListViewModel.tasks.value?.get(position)!!
         taskListViewModel.currentTaskInfo = taskListViewModel.tasksInfo[position]
-//        findNavController().navigate(R.id.taskInfoFragment)
+        findNavController().navigate(R.id.taskInfoFragment)
         val builder = AlertDialog.Builder(this.context)
         val details: String =
             "Task Title: ${taskListViewModel.currentTask.title}\n" +
@@ -81,13 +84,27 @@ class TaskFragment : Fragment() {
     }
 
     private fun registerListeners() {
-        addButton.setOnClickListener {
+        addButton.setOnClickListener{
             findNavController().navigate(R.id.createTaskFragment)
+        }
+        filterDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedOption = filterDropdown.selectedItem as String
+                if (selectedOption == filters[0]){
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
         }
     }
 
     private fun initViewItems(view: View) {
         addButton = view.findViewById(R.id.addTask)
     }
-}
 
+}

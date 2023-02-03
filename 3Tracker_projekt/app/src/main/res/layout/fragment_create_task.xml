@@ -5,115 +5,143 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.a3tracker_projekt.ui.tasks.CreateTaskFragment">
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/searchButton"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_search_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/addStatus"
-        android:layout_width="411dp"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="Status"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addDeadline" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#000000"
+        android:src="@drawable/line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
     <EditText
         android:id="@+id/addName"
-        android:layout_width="0dp"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Task Name"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addDepartment" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
 
     <EditText
         android:id="@+id/addAssignee"
-        android:layout_width="0dp"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Assignee"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addDepartment" />
 
     <EditText
         android:id="@+id/addDeadline"
-        android:layout_width="0dp"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Deadline"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addDepartment" />
+        app:layout_constraintTop_toBottomOf="@+id/addPriority" />
 
     <EditText
         android:id="@+id/addDescription"
-        android:layout_width="411dp"
+        android:layout_width="311dp"
         android:layout_height="120dp"
+        android:layout_marginTop="11dp"
         android:ems="10"
         android:hint="Description"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addStatus" />
 
     <EditText
         android:id="@+id/addPriority"
-        android:layout_width="0dp"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="Priority"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addDepartment" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="about the New Task"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/addAssignee" />
 
     <EditText
         android:id="@+id/addDepartment"
-        android:layout_width="0dp"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="172dp"
         android:ems="10"
         android:hint="Department"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Please provide information"
-        android:textSize="20sp"
+        android:layout_width="94dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:text="New Task"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -121,10 +149,10 @@
         android:id="@+id/createTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="39dp"
         android:text="CREATE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

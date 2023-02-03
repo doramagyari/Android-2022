@@ -1,6 +1,8 @@
-package com.example.a3tracker_projekt.api.login
+package com.example.a3tracker_projekt.api.interfaces
 
-import com.example.a3tracker_projekt.api.ApiClient
+import com.example.a3tracker_projekt.api.login.LoginRequest
+import com.example.a3tracker_projekt.api.login.LoginResponse
+import com.example.a3tracker_projekt.api.objects.ApiClient
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

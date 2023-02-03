@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.a3tracker_projekt.api.login.LoginRequest
 import com.example.a3tracker_projekt.api.users.MyApplication
-import com.example.a3tracker_projekt.api.users.TrackerRepository
+import com.example.a3tracker_projekt.repo.TrackerRepository
 import kotlinx.coroutines.launch
 
 class DemoLoginViewModelFactory(
@@ -44,3 +44,5 @@ class DemoLoginViewModel(val archive: TrackerRepository) : ViewModel() {
         }
     }
 }
+
+

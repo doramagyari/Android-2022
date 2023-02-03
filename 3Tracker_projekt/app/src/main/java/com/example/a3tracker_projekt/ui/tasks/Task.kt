@@ -2,7 +2,6 @@ package com.example.a3tracker_projekt.ui.tasks
 
 import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.JsonClass
-
 @JsonClass(generateAdapter = true)
 data class Task(
     @SerializedName("ID")

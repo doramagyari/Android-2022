@@ -26,7 +26,7 @@
         android:layout_width="64dp"
         android:layout_height="68dp"
         android:layout_marginStart="-320dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/three"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/imageView3" />
@@ -36,7 +36,7 @@
         android:layout_width="139dp"
         android:layout_height="66dp"
         android:layout_marginStart="6dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/track"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/imageView4" />
@@ -54,12 +54,35 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintStart_toEndOf="@+id/imageView3" />
 
+    <ImageView
+        android:id="@+id/imageLoginBgShape"
+        android:layout_width="365dp"
+        android:layout_height="420dp"
+        android:layout_marginStart="-390dp"
+        android:layout_marginTop="-492dp"
+        android:src="@drawable/formshape"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/sign_in_text"
+        android:layout_width="333dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="-350dp"
+        android:text="Hey, Log In Please!"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/project_demo_email"
-        android:layout_width="330dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
-        android:layout_marginEnd="-380dp"
+        android:layout_marginEnd="-350dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:padding="8dp"
@@ -70,10 +93,10 @@
 
     <EditText
         android:id="@+id/project_demo_password"
-        android:layout_width="330dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="-380dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="-330dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="8dp"
@@ -81,11 +104,29 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/project_demo_email" />
 
+    <ImageView
+        android:id="@+id/imageViewShowPW"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/visibleicon"
+        app:layout_constraintStart_toEndOf="@+id/project_demo_password"
+        app:layout_constraintTop_toBottomOf="@+id/project_demo_email" />
+
+    <ImageView
+        android:id="@+id/imageViewHidePW"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/notvisibleicon"
+        app:layout_constraintStart_toEndOf="@+id/project_demo_password"
+        app:layout_constraintTop_toBottomOf="@+id/project_demo_email" />
+
     <Button
         android:id="@+id/login_button"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="-330dp"
         android:backgroundTint="@color/white"
         android:text="LOGIN"
