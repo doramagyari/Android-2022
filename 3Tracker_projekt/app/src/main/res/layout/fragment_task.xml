@@ -21,14 +21,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/profilePicture"
-        android:layout_width="30sp"
-        android:layout_height="30sp"
-        android:layout_marginTop="-40dp"
-        android:src="@drawable/emptypp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/filterSpinner" />
+<!--    <ImageView-->
+<!--        android:id="@+id/profilePicture"-->
+<!--        android:layout_width="30sp"-->
+<!--        android:layout_height="30sp"-->
+<!--        android:layout_marginTop="-40dp"-->
+<!--        android:src="@drawable/emptypp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
 
     <TextView
         android:id="@+id/textView"
@@ -55,6 +54,15 @@
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/example_item_task" />
 
+    <!--    <Spinner-->
+<!--        android:id="@+id/filterSpinner"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:contentDescription="Filter your tasks"-->
+<!--        android:spinnerMode="dropdown"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
@@ -62,37 +70,19 @@
         android:background="#000000"
         android:src="@drawable/line"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
-
-    <Spinner
-        android:id="@+id/filterSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:contentDescription="Filter your tasks"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/addTask" />
 
     <ImageButton
         android:id="@+id/addTask"
         android:layout_width="37dp"
         android:layout_height="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:minHeight="48dp"
         android:src="@drawable/ic_baseline_add_task_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/searchTask"
-        android:layout_width="37dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="40dp"
-        android:minHeight="48dp"
-        android:src="@drawable/ic_baseline_search_24"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

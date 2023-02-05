@@ -19,7 +19,7 @@ data class Task(
     @SerializedName("priority")
     var priority: String,
     @SerializedName("deadline")
-    var deadline: Int,
+    var deadline: Long,
     @SerializedName("department_ID")
     var department_ID: Int,
     @SerializedName("status")

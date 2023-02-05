@@ -1,5 +1,6 @@
 package com.example.a3tracker_projekt.ui.tasks
 
+import android.app.TaskInfo
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -110,30 +111,5 @@ class TaskViewModel(val repository: TrackerRepository) : ViewModel() {
 
 
 
-//class TaskViewModel : ViewModel() {
-//
-//    var tasks: MutableList<Task> = mutableListOf()
-//
-//    fun retrievingTasks(){
-//        var project = "projectName"
-//        var title = "name"
-//        var assignedBy = "valaki"
-//        var assignee = "valami"
-//        var priority = "priority"
-//        var deadline = "2022.12.29"
-//        var description = "description"
-//        val newTask = Task(title, project, assignedBy, Date(), assignee, Date(), priority, description)
-//    }
-//
-//    fun randomizeTasks(){
-//        tasks.shuffle()
-////        randomizeAnswers()
-//    }
-//
-//    //like in the quiz
-//    fun getTasks(x : Int) : Task{
-//        return tasks[x];
-//    }
-//
-//}
+
 

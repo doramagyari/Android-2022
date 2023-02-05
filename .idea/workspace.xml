@@ -10,15 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14dc3fdd-1ea1-4099-a085-7aad69479800" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/api/users/MyUser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/api/users/MyUser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/repo/TrackerRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/repo/TrackerRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/login/DemoLoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/login/DemoLoginFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/profile/ProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/profile/ProfileFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/fragment_demo_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/fragment_demo_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/tasks/Task.kt" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/tasks/Task.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/tasks/TaskFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/tasks/TaskFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/tasks/TaskViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/java/com/example/a3tracker_projekt/ui/tasks/TaskViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/example_item_task.xml" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/example_item_task.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/fragment_task.xml" beforeDir="false" afterPath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/fragment_task.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3Tracker_projekt/app/src/main/res/layout/recycleview_example_item.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/3Tracker_projekt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
